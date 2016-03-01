@@ -1,0 +1,442 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:07.626604 UTC
+
+interface flickr-0.3.3:Flickr.Favorites 7084
+  interface hash: 49cd64792d8ad3aa3db690ce9550066e
+  ABI hash: 0fc30daffb6b2a2f4cb1ded8ee7a607e
+  export-list hash: a17ba81660b87b755ee146023da41c13
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 33e5b289809cf83d673df26976face9f
+  used TH splices: False
+  where
+exports:
+  Flickr.Favorites.add
+  Flickr.Favorites.getList
+  Flickr.Favorites.getPublicList
+  Flickr.Favorites.remove
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Monad
+                     Flickr.Types Flickr.Types.Import Flickr.Utils Util.Fetch Util.Keys
+                     Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Data.Maybe 5034d40e23c3a7110309f188001df4ca
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:GHC.Show cf1a7ff9edb0f41528085aad04d33753
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Monad 674fd2fea86aa2605cc91229a555ec49
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  flickCall_ a4b037ad88ec2630c5c3c4b581c42182
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  lsArg c3c9ceb6cf2fc5ee33bd67fb297f08ca
+  mbArg fa8e1aa0b07207d002e5dac562d3d3bf
+  postMethod b894fdcbd5b83d21dfa037dd8bba6dcf
+  withReadPerm 6aa3446da9d22d6d7f84a29bfdacb8f8
+  withWritePerm 73ff2a63e3ab148ae336fe33c2f18317
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  DateDetails 4a6950cd2e58b5ae88071bdb80be45d2
+  Photo 2deca11afc0a961b40b35bcb8cfdb204
+  PhotoContext b13240513008c5723d6a1a8824274a9d
+  PhotoID afad6d42cded8baa9088f416d88f77bf
+  PhotoInfo 80f14b9fec26e6389cc8843e842ac6d9
+  UserID c293dabe8f0c6a26ce6f08bd072224fe
+  dateMaxTaken 0e6952cc34261b3103e83e58f6659964
+  dateMinTaken f334b0da8ff3cc101bc80fb6e977116c
+import  -/  Flickr.Types.Import da2c9786faefb0407bdc4730d0d4b181
+  exports: 85b5f3b03fa235dd576ef02c774e9eab
+  toPhotoList 35e814ac6bfec3a1de4ef5e719304676
+a07e0c5bb4e9613aa5e64c803c58ec7d
+  $wgetList :: Data.Maybe.Maybe Flickr.Types.UserID
+               -> [Flickr.Types.PhotoInfo]
+               -> Flickr.Types.DateDetails
+               -> (# Flickr.Monad.FMEnv
+                     -> GHC.Types.IO
+                            (Flickr.Types.PhotoContext, [Flickr.Types.Photo]) #)
+    {- Arity: 3, Strictness: <L,1*U><L,1*U><L,1*U(1*U,1*U,A,A)>,
+       Unfolding: (\ w :: Data.Maybe.Maybe Flickr.Types.UserID
+                     w1 :: [Flickr.Types.PhotoInfo]
+                     w2 :: Flickr.Types.DateDetails ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Favorites.getList5
+                          (let {
+                             xs :: [(GHC.Base.String, GHC.Base.String)]
+                             = case GHC.Base.map
+                                      @ Flickr.Types.PhotoInfo
+                                      @ [GHC.Types.Char]
+                                      Flickr.Types.$fShowPhotoInfo_$cshow
+                                      w1 of wild {
+                                 [] -> GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)
+                                 : ipv ipv1
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Favorites.getList4,
+                                       Data.List.intercalate_$spoly_go
+                                         @ GHC.Types.Char
+                                         ipv
+                                         (Data.List.prependToAll
+                                            @ [GHC.Types.Char]
+                                            Flickr.Monad.lsArg1
+                                            ipv1))
+                                      (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)) }
+                           } in
+                           let {
+                             xs1 :: [(GHC.Base.String, GHC.Base.String)]
+                             = case w2 of wild { Flickr.Types.DateDetails ds1 ds2 ds3 ds4 ->
+                               case ds1 of wild1 {
+                                 Data.Maybe.Nothing
+                                 -> case ds2 of wild2 {
+                                      Data.Maybe.Nothing -> xs
+                                      Data.Maybe.Just a1
+                                      -> GHC.Types.:
+                                           @ (GHC.Base.String, GHC.Base.String)
+                                           (Flickr.Favorites.getList3, a1)
+                                           xs }
+                                 Data.Maybe.Just a1
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Favorites.getList2, a1)
+                                      (case ds2 of wild2 {
+                                         Data.Maybe.Nothing -> xs
+                                         Data.Maybe.Just a2
+                                         -> GHC.Types.:
+                                              @ (GHC.Base.String, GHC.Base.String)
+                                              (Flickr.Favorites.getList3, a2)
+                                              xs }) } }
+                           } in
+                           case w of wild {
+                             Data.Maybe.Nothing -> xs1
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Favorites.getList1, a1)
+                                  xs1 }) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         eta :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1
+                               (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                                Flickr.Monad.FMEnv
+                                  ds1
+                                  GHC.Types.True
+                                  ds3
+                                  ds4
+                                  ds5
+                                  ds6
+                                  ds7
+                                  Flickr.Monad.withReadPerm1
+                                  ds9
+                                  ds10
+                                  ds11 }))
+                              `cast`
+                            (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              eta of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltPhotoList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.PhotoContext,
+                                       [Flickr.Types.Photo])>_R)) #) }) -}
+c0eccbf09324cebff2a3ae49e8b5c089
+  $wgetPublicList :: Flickr.Types.UserID
+                     -> [Flickr.Types.PhotoInfo]
+                     -> Flickr.Types.DateDetails
+                     -> (# Flickr.Monad.FMEnv
+                           -> GHC.Types.IO
+                                  (Flickr.Types.PhotoContext, [Flickr.Types.Photo]) #)
+    {- Arity: 3, Strictness: <L,U><L,1*U><L,1*U(1*U,1*U,A,A)>,
+       Unfolding: (\ w :: Flickr.Types.UserID
+                     w1 :: [Flickr.Types.PhotoInfo]
+                     w2 :: Flickr.Types.DateDetails ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Favorites.getPublicList1
+                          (case w2 of wild { Flickr.Types.DateDetails ds1 ds2 ds3 ds4 ->
+                           let {
+                             xs :: [(GHC.Base.String, GHC.Base.String)]
+                             = case GHC.Base.map
+                                      @ Flickr.Types.PhotoInfo
+                                      @ [GHC.Types.Char]
+                                      Flickr.Types.$fShowPhotoInfo_$cshow
+                                      w1 of wild1 {
+                                 []
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Favorites.getList1, w)
+                                      (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String))
+                                 : ipv ipv1
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Favorites.getList4,
+                                       Data.List.intercalate_$spoly_go
+                                         @ GHC.Types.Char
+                                         ipv
+                                         (Data.List.prependToAll
+                                            @ [GHC.Types.Char]
+                                            Flickr.Monad.lsArg1
+                                            ipv1))
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Favorites.getList1, w)
+                                         (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String))) }
+                           } in
+                           case ds1 of wild1 {
+                             Data.Maybe.Nothing
+                             -> case ds2 of wild2 {
+                                  Data.Maybe.Nothing -> xs
+                                  Data.Maybe.Just a1
+                                  -> GHC.Types.:
+                                       @ (GHC.Base.String, GHC.Base.String)
+                                       (Flickr.Favorites.getList3, a1)
+                                       xs }
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Favorites.getList2, a1)
+                                  (case ds2 of wild2 {
+                                     Data.Maybe.Nothing -> xs
+                                     Data.Maybe.Just a2
+                                     -> GHC.Types.:
+                                          @ (GHC.Base.String, GHC.Base.String)
+                                          (Flickr.Favorites.getList3, a2)
+                                          xs }) } }) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltPhotoList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.PhotoContext,
+                                       [Flickr.Types.Photo])>_R)) #) }) -}
+e6ce597a813508e577f7b7fe95ac3a5a
+  add :: Flickr.Types.PhotoID -> Flickr.Monad.FM ()
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Favorites.add2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Favorites.add1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ ()
+                     (\ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 })) }) -}
+70a5be87dccb1a4a4fc8f6a93b60e8ef
+  add1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "photo_id"#) -}
+b650fbb2c0246b03e5f55d24822c9f0a
+  add2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.favorites.add"#) -}
+4ba12ffbd82a5b4d2366f2324741054c
+  getList :: Data.Maybe.Maybe Flickr.Types.UserID
+             -> [Flickr.Types.PhotoInfo]
+             -> Flickr.Types.DateDetails
+             -> Flickr.Monad.FM
+                    (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+    {- Arity: 3, Strictness: <L,1*U><L,1*U><L,1*U(1*U,1*U,A,A)>m,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (3, True, False)
+                  (\ w :: Data.Maybe.Maybe Flickr.Types.UserID
+                     w1 :: [Flickr.Types.PhotoInfo]
+                     w2 :: Flickr.Types.DateDetails ->
+                   case Flickr.Favorites.$wgetList w w1 w2 of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                     ww1 }) -}
+c836a249d30c32e1ab3d4e1452da1939
+  getList1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "user_id"#) -}
+0e1a7aba3b59ad2a9c995925eb372cb1
+  getList2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "min_fave_date"#) -}
+cdda46427523a26f46cbcfe5d2a4989a
+  getList3 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "max_fave_date"#) -}
+7a546bbd424e0c33a57f67b21cc8c4ef
+  getList4 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "extras"#) -}
+c6d87a2b4281d3195d5aa4977fbc7761
+  getList5 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.favorites.getList"#) -}
+ad51f23dbe3b2bc07b4c3357877a01e5
+  getPublicList :: Flickr.Types.UserID
+                   -> [Flickr.Types.PhotoInfo]
+                   -> Flickr.Types.DateDetails
+                   -> Flickr.Monad.FM
+                          (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+    {- Arity: 3, Strictness: <L,U><L,1*U><L,1*U(1*U,1*U,A,A)>m,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (3, True, False)
+                  (\ w :: Flickr.Types.UserID
+                     w1 :: [Flickr.Types.PhotoInfo]
+                     w2 :: Flickr.Types.DateDetails ->
+                   case Flickr.Favorites.$wgetPublicList w w1 w2 of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                     ww1 }) -}
+19c45ff7c283490b230889f477271576
+  getPublicList1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.favorites.getPublicList"#) -}
+d723e0d0fc26710400c6976373c27feb
+  remove :: Flickr.Types.PhotoID -> Flickr.Monad.FM ()
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Favorites.remove1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Favorites.add1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ ()
+                     (\ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 })) }) -}
+ced8420f4bd7d15f3dc705a67a5c194a
+  remove1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.favorites.remove"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,475 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:07.919244 UTC
+
+interface flickr-0.3.3:Flickr.MachineTags 7084
+  interface hash: 92332164dd27821dd7a20e1a8ed2bfa4
+  ABI hash: 0cc6e95aaea38e90109aa11b119ad066
+  export-list hash: 8ee5cb7b678b3059ee35513aa66955a6
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 33e5b289809cf83d673df26976face9f
+  used TH splices: False
+  where
+exports:
+  Flickr.MachineTags.getNamespaces
+  Flickr.MachineTags.getPairs
+  Flickr.MachineTags.getPredicates
+  Flickr.MachineTags.getValues
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Monad
+                     Flickr.Types Flickr.Types.Import Flickr.Utils Util.Fetch Util.Keys
+                     Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Control.Monad 483e787e07c2e49f1fb1c1b88665cb92
+import  -/  base:Data.Maybe 5034d40e23c3a7110309f188001df4ca
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Monad 674fd2fea86aa2605cc91229a555ec49
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  mbArg fa8e1aa0b07207d002e5dac562d3d3bf
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  MachineTag cda52e3744bc7815cec29ad295f847f3
+  MachineTagPair 3112886918507c757c431a3d0b4f4eaa
+  MachineTagPred 8df02b831e247f6d244e665c89e0c01d
+  NameContext 1fa1d4cd071d20c96481e0c0b4b7290b
+  Namespace 0a5955fd7772102063ddce34db87fa8e
+  ResContext 28de0b11cd439f5cd05840267825cde8
+  mTagNamespace 2c29bf8f0bdd8f4d8e5eb62aa513271e
+  mTagPredicate efd61913debe85ed31ca88f005f13f62
+import  -/  Flickr.Types.Import da2c9786faefb0407bdc4730d0d4b181
+  exports: 85b5f3b03fa235dd576ef02c774e9eab
+  toMachineTagList 8b3125f7d08d33b9231de20aee522635
+  toNamespaceList 9de091f234f61c7cdb0563b711c46c63
+  toPairList 0825556087d97a91ff00b66cea6d44ee
+  toPredList f0272be009333f46a1bb0d578043644e
+dc86e31afb7fd23b9fd7c429cce64af7
+  $wgetNamespaces :: Data.Maybe.Maybe GHC.Base.String
+                     -> (# Flickr.Monad.FMEnv
+                           -> GHC.Types.IO
+                                  (Flickr.Types.NameContext, [Flickr.Types.Namespace]) #)
+    {- Arity: 1, Strictness: <L,1*U>,
+       Unfolding: (\ w :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.MachineTags.getNamespaces2
+                          (case w of wild {
+                             Data.Maybe.Nothing
+                             -> GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.MachineTags.getNamespaces1, a1)
+                                  (GHC.Types.[]
+                                     @ (GHC.Base.String, GHC.Base.String)) }) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.NameContext, [Flickr.Types.Namespace])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltNamespaceList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.NameContext, [Flickr.Types.Namespace])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.NameContext,
+                                       [Flickr.Types.Namespace])>_R)) #) }) -}
+754a9e320c9381536299f39a3cad6e89
+  $wgetPairs :: Data.Maybe.Maybe GHC.Base.String
+                -> Data.Maybe.Maybe GHC.Base.String
+                -> (# Flickr.Monad.FMEnv
+                      -> GHC.Types.IO
+                             (Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                              [Flickr.Types.MachineTagPair]) #)
+    {- Arity: 2, Strictness: <L,1*U><L,1*U>,
+       Unfolding: (\ w :: Data.Maybe.Maybe GHC.Base.String
+                     w1 :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.MachineTags.getPairs2
+                          (case w1 of wild {
+                             Data.Maybe.Nothing
+                             -> case w of wild1 {
+                                  Data.Maybe.Nothing
+                                  -> GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)
+                                  Data.Maybe.Just a1
+                                  -> GHC.Types.:
+                                       @ (GHC.Base.String, GHC.Base.String)
+                                       (Flickr.MachineTags.getPairs1, a1)
+                                       (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)) }
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.MachineTags.getNamespaces1, a1)
+                                  (case w of wild1 {
+                                     Data.Maybe.Nothing
+                                     -> GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)
+                                     Data.Maybe.Just a2
+                                     -> GHC.Types.:
+                                          @ (GHC.Base.String, GHC.Base.String)
+                                          (Flickr.MachineTags.getPairs1, a2)
+                                          (GHC.Types.[]
+                                             @ (GHC.Base.String,
+                                                GHC.Base.String)) }) }) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                                 [Flickr.Types.MachineTagPair])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltMachinePairList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                                      [Flickr.Types.MachineTagPair])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                                       [Flickr.Types.MachineTagPair])>_R)) #) }) -}
+71833a5b982e2d954054b290bcf8b295
+  $wgetPredicates :: Data.Maybe.Maybe GHC.Base.String
+                     -> (# Flickr.Monad.FMEnv
+                           -> GHC.Types.IO
+                                  (Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                                   [Flickr.Types.MachineTagPred]) #)
+    {- Arity: 1, Strictness: <L,1*U>,
+       Unfolding: (\ w :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.MachineTags.getPredicates1
+                          (case w of wild {
+                             Data.Maybe.Nothing
+                             -> GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.MachineTags.getPairs1, a1)
+                                  (GHC.Types.[]
+                                     @ (GHC.Base.String, GHC.Base.String)) }) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                                 [Flickr.Types.MachineTagPred])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltMachinePredList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                                      [Flickr.Types.MachineTagPred])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                                       [Flickr.Types.MachineTagPred])>_R)) #) }) -}
+ba92cc9eba90d9ac4168ff1240901060
+  $wgetValues :: GHC.Base.String
+                 -> GHC.Base.String
+                 -> (# Flickr.Monad.FMEnv
+                       -> GHC.Types.IO
+                              (Flickr.Types.ResContext Flickr.Types.MachineTag,
+                               [Flickr.Types.MachineTag]) #)
+    {- Arity: 2, Strictness: <L,U><L,U>,
+       Unfolding: (\ w :: GHC.Base.String w1 :: GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.MachineTags.getValues1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.MachineTags.getPairs1, w)
+                             (GHC.Types.:
+                                @ (GHC.Base.String, GHC.Base.String)
+                                (Flickr.MachineTags.getNamespaces1, w1)
+                                (GHC.Types.[]
+                                   @ (GHC.Base.String, GHC.Base.String)))) of ww { (##) ww1 ->
+                   let {
+                     lvl :: Flickr.Types.MachineTag -> Flickr.Types.MachineTag
+                       {- Arity: 1, Strictness: <S,1*U(A,A,U,U)>m,
+                          Unfolding: InlineRule (1, True, False)
+                                     (\ p :: Flickr.Types.MachineTag ->
+                                      case p of wild { Flickr.Types.MachineTag ds ds1 ds2 ds3 ->
+                                      Flickr.Types.MachineTag w w1 ds2 ds3 }) -}
+                     = \ p :: Flickr.Types.MachineTag ->
+                       case p of wild { Flickr.Types.MachineTag ds ds1 ds2 ds3 ->
+                       Flickr.Types.MachineTag w w1 ds2 ds3 }
+                   } in
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.ResContext Flickr.Types.MachineTag,
+                                 [Flickr.Types.MachineTag])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltMachineTagList
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4
+                                   ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.ResContext Flickr.Types.MachineTag,
+                                      [Flickr.Types.MachineTag])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res
+                              -> (# ipv,
+                                    case res of wild2 { (,) x1 xs ->
+                                    (x1,
+                                     GHC.Base.map
+                                       @ Flickr.Types.MachineTag
+                                       @ Flickr.Types.MachineTag
+                                       lvl
+                                       xs) } #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.ResContext Flickr.Types.MachineTag,
+                                       [Flickr.Types.MachineTag])>_R)) #) }) -}
+4c2d4ac71725c3c2802f2685c64e636b
+  getNamespaces :: Data.Maybe.Maybe GHC.Base.String
+                   -> Flickr.Monad.FM
+                          (Flickr.Types.NameContext, [Flickr.Types.Namespace])
+    {- Arity: 1, Strictness: <L,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.MachineTags.$wgetNamespaces w of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.NameContext, [Flickr.Types.Namespace])
+                     ww1 }) -}
+2c43cc92c3e8e50b7ee260da93f65fdd
+  getNamespaces1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "predicate"#) -}
+3b1323d0a0c50317855a44896b216699
+  getNamespaces2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.machinetags.getNamespaces"#) -}
+2a3a3ed07758a93b567bbb67735ae4c5
+  getPairs :: Data.Maybe.Maybe GHC.Base.String
+              -> Data.Maybe.Maybe GHC.Base.String
+              -> Flickr.Monad.FM
+                     (Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                      [Flickr.Types.MachineTagPair])
+    {- Arity: 2, Strictness: <L,1*U><L,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Data.Maybe.Maybe GHC.Base.String
+                     w1 :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.MachineTags.$wgetPairs w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.ResContext Flickr.Types.MachineTagPair,
+                        [Flickr.Types.MachineTagPair])
+                     ww1 }) -}
+77a2cdfc7a3fb78257722bd265cf4f59
+  getPairs1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "namespace"#) -}
+8133454a9cbf678dcba35ae12af7de87
+  getPairs2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.machinetags.getPairs"#) -}
+b954f13f1d37ab4810f4e06094dc7c46
+  getPredicates :: Data.Maybe.Maybe GHC.Base.String
+                   -> Flickr.Monad.FM
+                          (Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                           [Flickr.Types.MachineTagPred])
+    {- Arity: 1, Strictness: <L,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Data.Maybe.Maybe GHC.Base.String ->
+                   case Flickr.MachineTags.$wgetPredicates w of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.ResContext Flickr.Types.MachineTagPred,
+                        [Flickr.Types.MachineTagPred])
+                     ww1 }) -}
+da7ef03a3d8538b30f46332662ac0a66
+  getPredicates1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.machinetags.getPredicates"#) -}
+b46e6e19f5e56e9ca328fb7a97a008a6
+  getValues :: GHC.Base.String
+               -> GHC.Base.String
+               -> Flickr.Monad.FM
+                      (Flickr.Types.ResContext Flickr.Types.MachineTag,
+                       [Flickr.Types.MachineTag])
+    {- Arity: 2, Strictness: <L,U><L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: GHC.Base.String w1 :: GHC.Base.String ->
+                   case Flickr.MachineTags.$wgetValues w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.ResContext Flickr.Types.MachineTag,
+                        [Flickr.Types.MachineTag])
+                     ww1 }) -}
+a2d6c865a418eafeac1164f902a1fbd0
+  getValues1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.machinetags.getValues"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

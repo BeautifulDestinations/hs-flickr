@@ -1,0 +1,750 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 17:02:53.039871 UTC
+
+interface flickr-0.3.3:Flickr.API 7084
+  interface hash: 964ebfad730c325884ea02997dcfbad8
+  ABI hash: f99b041843fe4bc30ae49dca38522401
+  export-list hash: c06f0876e8fec25afab622f1b2f7195d
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 33e5b289809cf83d673df26976face9f
+  used TH splices: False
+  where
+exports:
+  Data.Maybe.fromMaybe
+  Flickr.Auth.checkToken
+  Flickr.Auth.getFrob
+  Flickr.Auth.getFullToken
+  Flickr.Auth.getToken
+  Flickr.Monad.api_base
+  Flickr.Monad.auth_base
+  Flickr.Monad.catchFlickr
+  Flickr.Monad.checkResponse
+  Flickr.Monad.eiArg
+  Flickr.Monad.flick
+  Flickr.Monad.flickAPI
+  Flickr.Monad.flickCall
+  Flickr.Monad.flickCall_
+  Flickr.Monad.flickError
+  Flickr.Monad.flickFromException
+  Flickr.Monad.flickToException
+  Flickr.Monad.flickTranslate
+  Flickr.Monad.flickrCall
+  Flickr.Monad.genLoginURL
+  Flickr.Monad.getAPIKey
+  Flickr.Monad.getAuthMiniToken
+  Flickr.Monad.getAuthToken
+  Flickr.Monad.getBaseURL
+  Flickr.Monad.getMobileAuthURL
+  Flickr.Monad.handleFlickr
+  Flickr.Monad.liftIO
+  Flickr.Monad.lsArg
+  Flickr.Monad.mbArg
+  Flickr.Monad.mkLoginURL
+  Flickr.Monad.onlyTheseProperties
+  Flickr.Monad.pagedCall
+  Flickr.Monad.parseDoc
+  Flickr.Monad.postMethod
+  Flickr.Monad.replace_base
+  Flickr.Monad.restGet
+  Flickr.Monad.restPost
+  Flickr.Monad.signedMethod
+  Flickr.Monad.throwFlickErr
+  Flickr.Monad.tryFlick
+  Flickr.Monad.upload_base
+  Flickr.Monad.withAPIKey
+  Flickr.Monad.withAuthMiniToken
+  Flickr.Monad.withAuthToken
+  Flickr.Monad.withBase
+  Flickr.Monad.withDeletePerm
+  Flickr.Monad.withPageSize
+  Flickr.Monad.withReadPerm
+  Flickr.Monad.withSharedSecret
+  Flickr.Monad.withWritePerm
+  Flickr.Types.nullDateDetails
+  Flickr.Types.nullTagInfo
+  Flickr.Types.nullUser
+  Flickr.Types.showContentType
+  Flickr.Types.showSafety
+  Flickr.Utils.child
+  Flickr.Utils.children
+  Flickr.Utils.ifNamed
+  Flickr.Utils.intContent
+  Flickr.Utils.mbDef
+  Flickr.Utils.mbOpt
+  Flickr.Utils.nsName
+  Flickr.Utils.opt
+  Flickr.Utils.opt1
+  Flickr.Utils.optB
+  Flickr.Utils.pAttr
+  Flickr.Utils.pLeaf
+  Flickr.Utils.pMany
+  Flickr.Utils.pNode
+  Flickr.Utils.pNodes
+  Flickr.Utils.piped
+  Flickr.Utils.readMb
+  Flickr.Utils.showBool
+  Flickr.Utils.without
+  Flickr.Monad.ErrM
+  Flickr.Monad.FM{Flickr.Monad.FM}
+  Flickr.Monad.FMEnv{Flickr.Monad.FMEnv Flickr.Monad.fm_api_base Flickr.Monad.fm_api_key Flickr.Monad.fm_auth_mini_token Flickr.Monad.fm_auth_token Flickr.Monad.fm_include_props Flickr.Monad.fm_is_paged Flickr.Monad.fm_is_signed Flickr.Monad.fm_page Flickr.Monad.fm_per_page Flickr.Monad.fm_perm_level Flickr.Monad.fm_post_method}
+  Flickr.Monad.FlickErr{Flickr.Monad.FlickErr Flickr.Monad.flickErrorCode Flickr.Monad.flickErrorLoc Flickr.Monad.flickErrorMsg Flickr.Monad.flickErrorSource Flickr.Monad.flickErrorType}
+  Flickr.Monad.FlickErrorType{Flickr.Monad.EmptyResponse Flickr.Monad.FlickParseError Flickr.Monad.FlickrAPIError Flickr.Monad.IllformedError Flickr.Monad.MissingStatus Flickr.Monad.UnexpectedResponse}
+  Flickr.Monad.SomeFlickException{Flickr.Monad.SomeFlickException}
+  Flickr.Types.Accuracy
+  Flickr.Types.Activity{Flickr.Types.Activity Flickr.Types.actContent Flickr.Types.actDate Flickr.Types.actType Flickr.Types.actUser}
+  Flickr.Types.AppInfo{Flickr.Types.AppInfo Flickr.Types.appAboutURL Flickr.Types.appDescription Flickr.Types.appLogo Flickr.Types.appTitle}
+  Flickr.Types.AscDesc{Flickr.Types.Asc Flickr.Types.Desc}
+  Flickr.Types.AuthFrob{Flickr.Types.AuthFrob Flickr.Types.aFrob}
+  Flickr.Types.AuthMiniToken
+  Flickr.Types.AuthRequest{Flickr.Types.AuthRequest Flickr.Types.authFrob Flickr.Types.authKey Flickr.Types.authPermission Flickr.Types.authSig}
+  Flickr.Types.AuthToken{Flickr.Types.AuthToken Flickr.Types.authPerms Flickr.Types.authToken Flickr.Types.authUser}
+  Flickr.Types.AuthTokenValue
+  Flickr.Types.Bandwidth{Flickr.Types.Bandwidth Flickr.Types.bandWidthBytes Flickr.Types.bandWidthKB Flickr.Types.bandWidthRemainingBytes Flickr.Types.bandWidthRemainingKB Flickr.Types.bandWidthUsedBytes Flickr.Types.bandWidthUsedKB}
+  Flickr.Types.Blog{Flickr.Types.Blog Flickr.Types.blogId Flickr.Types.blogName Flickr.Types.blogNeedsPW Flickr.Types.blogURL}
+  Flickr.Types.BlogID
+  Flickr.Types.BoundingBox{Flickr.Types.BoundingBox Flickr.Types.bboxMaxLatitude Flickr.Types.bboxMaxLongitude Flickr.Types.bboxMinLatitude Flickr.Types.bboxMinLongitude}
+  Flickr.Types.Category{Flickr.Types.Category Flickr.Types.catId Flickr.Types.catName Flickr.Types.catPath Flickr.Types.catPaths Flickr.Types.catSubs}
+  Flickr.Types.CategoryID
+  Flickr.Types.ChatId
+  Flickr.Types.Cluster{Flickr.Types.Cluster Flickr.Types.clusterCount Flickr.Types.clusterTags}
+  Flickr.Types.ClusterID
+  Flickr.Types.Comment{Flickr.Types.Comment Flickr.Types.commentAuthor Flickr.Types.commentDate Flickr.Types.commentId Flickr.Types.commentText Flickr.Types.commentURL}
+  Flickr.Types.CommentID
+  Flickr.Types.Contact{Flickr.Types.Contact Flickr.Types.conIcon Flickr.Types.conId Flickr.Types.conIgnored Flickr.Types.conIsFamily Flickr.Types.conIsFriend Flickr.Types.conUser}
+  Flickr.Types.ContentType{Flickr.Types.ContentOther Flickr.Types.ContentPhoto Flickr.Types.ContentScreenshot}
+  Flickr.Types.ContextID
+  Flickr.Types.Date
+  Flickr.Types.DateDetails{Flickr.Types.DateDetails Flickr.Types.dateMaxTaken Flickr.Types.dateMaxUpload Flickr.Types.dateMinTaken Flickr.Types.dateMinUpload}
+  Flickr.Types.DateGranularity
+  Flickr.Types.DateInterval
+  Flickr.Types.DateString
+  Flickr.Types.DayWeek
+  Flickr.Types.Decimal
+  Flickr.Types.Description
+  Flickr.Types.EXIF{Flickr.Types.EXIF Flickr.Types.exifClean Flickr.Types.exifLabel Flickr.Types.exifRaw Flickr.Types.exifTag}
+  Flickr.Types.EXIFTag{Flickr.Types.EXIFTag Flickr.Types.exifTagId Flickr.Types.exifTagspace Flickr.Types.exifTagspaceId}
+  Flickr.Types.FileSize{Flickr.Types.FileSize Flickr.Types.fileSizeBytes Flickr.Types.fileSizeKB}
+  Flickr.Types.Filter{Flickr.Types.Both Flickr.Types.Family Flickr.Types.Friends Flickr.Types.Neither}
+  Flickr.Types.GeoLocation
+  Flickr.Types.Group{Flickr.Types.Group Flickr.Types.groupChatId Flickr.Types.groupId Flickr.Types.groupInChat Flickr.Types.groupIsOnline Flickr.Types.groupMembers Flickr.Types.groupName}
+  Flickr.Types.GroupCat{Flickr.Types.AGroup Flickr.Types.SubCat}
+  Flickr.Types.GroupID
+  Flickr.Types.Item{Flickr.Types.Item Flickr.Types.itActivity Flickr.Types.itComments Flickr.Types.itId Flickr.Types.itMore Flickr.Types.itOwner Flickr.Types.itPhotos Flickr.Types.itPrimary Flickr.Types.itSecret Flickr.Types.itServer Flickr.Types.itTitle Flickr.Types.itType Flickr.Types.itViews}
+  Flickr.Types.Key
+  Flickr.Types.Latitude
+  Flickr.Types.License{Flickr.Types.License Flickr.Types.licenseId Flickr.Types.licenseLink Flickr.Types.licenseName}
+  Flickr.Types.LicenseID
+  Flickr.Types.LocationPlace{Flickr.Types.LocationPlace Flickr.Types.locationPlaceDesc Flickr.Types.locationPlaceDetails Flickr.Types.locationPlaceId Flickr.Types.locationPlaceLat Flickr.Types.locationPlaceLong Flickr.Types.locationPlaceType Flickr.Types.locationPlaceURL Flickr.Types.locationPlaceWOEId}
+  Flickr.Types.Longitude
+  Flickr.Types.MachineTag{Flickr.Types.MachineTag Flickr.Types.mTagNamespace Flickr.Types.mTagPredicate Flickr.Types.mTagUsage Flickr.Types.mTagValue}
+  Flickr.Types.MachineTagPair{Flickr.Types.MachineTagPair Flickr.Types.mtPairName Flickr.Types.mtPairNamespace Flickr.Types.mtPairPredicate Flickr.Types.mtPairUsage}
+  Flickr.Types.MachineTagPred{Flickr.Types.MachineTagPred Flickr.Types.mtPredName Flickr.Types.mtPredNamespaces Flickr.Types.mtPredUsage}
+  Flickr.Types.MediaType{Flickr.Types.All Flickr.Types.Photos Flickr.Types.Videos}
+  Flickr.Types.NSID
+  Flickr.Types.NameContext
+  Flickr.Types.Namespace{Flickr.Types.Namespace Flickr.Types.namespaceName Flickr.Types.namespacePreds Flickr.Types.namespaceUsage}
+  Flickr.Types.Note{Flickr.Types.Note Flickr.Types.noteAuthor Flickr.Types.noteAuthorName Flickr.Types.noteId Flickr.Types.notePoint Flickr.Types.noteSize Flickr.Types.noteText}
+  Flickr.Types.NoteID
+  Flickr.Types.PermissionID
+  Flickr.Types.Permissions{Flickr.Types.Permissions Flickr.Types.permAddMetaLevel Flickr.Types.permCommentLevel Flickr.Types.permId Flickr.Types.permIsFamily Flickr.Types.permIsFriend Flickr.Types.permIsPublic}
+  Flickr.Types.Photo{Flickr.Types.Photo Flickr.Types.photoFamily Flickr.Types.photoFarm Flickr.Types.photoFriend Flickr.Types.photoId Flickr.Types.photoLicense Flickr.Types.photoOwner Flickr.Types.photoPublic Flickr.Types.photoSecret Flickr.Types.photoServer Flickr.Types.photoTitle Flickr.Types.photoURL}
+  Flickr.Types.PhotoContext{Flickr.Types.PhotoContext Flickr.Types.photoCtxtPage Flickr.Types.photoCtxtPages Flickr.Types.photoCtxtPerPage Flickr.Types.photoCtxtTotal}
+  Flickr.Types.PhotoCount{Flickr.Types.PhotoCount Flickr.Types.photoCount Flickr.Types.photoCountFrom Flickr.Types.photoCountTo}
+  Flickr.Types.PhotoDate{Flickr.Types.PhotoDate Flickr.Types.photoDateGranularity Flickr.Types.photoDateLastUpdate Flickr.Types.photoDatePosted Flickr.Types.photoDateTaken}
+  Flickr.Types.PhotoDetails{Flickr.Types.PhotoDetails Flickr.Types.photoDetailsComments Flickr.Types.photoDetailsDates Flickr.Types.photoDetailsDesc Flickr.Types.photoDetailsEdits Flickr.Types.photoDetailsIsFamily Flickr.Types.photoDetailsIsFavorite Flickr.Types.photoDetailsIsFriend Flickr.Types.photoDetailsIsPublic Flickr.Types.photoDetailsLicense Flickr.Types.photoDetailsNotes Flickr.Types.photoDetailsOrigFormat Flickr.Types.photoDetailsOrigSecret Flickr.Types.photoDetailsPerms Flickr.Types.photoDetailsPhoto Flickr.Types.photoDetailsRotation Flickr.Types.photoDetailsTags Flickr.Types.photoDetailsTitle Flickr.Types.photoDetailsURLs}
+  Flickr.Types.PhotoID
+  Flickr.Types.PhotoInfo{Flickr.Types.PhotoDateTaken Flickr.Types.PhotoDateUpload Flickr.Types.PhotoGeo Flickr.Types.PhotoIconServer Flickr.Types.PhotoLastUpdate Flickr.Types.PhotoLicense Flickr.Types.PhotoMachineTags Flickr.Types.PhotoMedia Flickr.Types.PhotoO_Dims Flickr.Types.PhotoOriginalFormat Flickr.Types.PhotoOwnerName Flickr.Types.PhotoTags Flickr.Types.PhotoViews}
+  Flickr.Types.PhotoPool{Flickr.Types.PhotoPool Flickr.Types.photoPoolId Flickr.Types.photoPoolTitle}
+  Flickr.Types.PhotoSize{Flickr.Types.PhotoSizeLarge Flickr.Types.PhotoSizeMedium Flickr.Types.PhotoSizeOriginal Flickr.Types.PhotoSizeSmall Flickr.Types.PhotoSizeSmallSquare Flickr.Types.PhotoSizeThumb}
+  Flickr.Types.Photoset{Flickr.Types.Photoset Flickr.Types.photosetDescription Flickr.Types.photosetId Flickr.Types.photosetOwner Flickr.Types.photosetPhotos Flickr.Types.photosetPrimaryPhoto Flickr.Types.photosetTitle}
+  Flickr.Types.PhotosetID
+  Flickr.Types.PhotosetQuota{Flickr.Types.PhotosetQuota Flickr.Types.photosetCreated Flickr.Types.photosetRemaining}
+  Flickr.Types.Place{Flickr.Types.Place Flickr.Types.placeDesc Flickr.Types.placeId Flickr.Types.placeLat Flickr.Types.placeLong Flickr.Types.placeType Flickr.Types.placeURL Flickr.Types.placeWOEId}
+  Flickr.Types.PlaceID
+  Flickr.Types.PlaceQuery{Flickr.Types.PlaceQuery Flickr.Types.placeQuery Flickr.Types.placeQueryAccuracy Flickr.Types.placeQueryLatitude Flickr.Types.placeQueryLongitude Flickr.Types.placeTotal}
+  Flickr.Types.PlaceType{Flickr.Types.PlaceType Flickr.Types.placeTypeId Flickr.Types.placeTypeName}
+  Flickr.Types.PlaceTypeId
+  Flickr.Types.PlaceTypeName
+  Flickr.Types.Point{Flickr.Types.Point Flickr.Types.pointX Flickr.Types.pointY}
+  Flickr.Types.Privacy{Flickr.Types.Contacts Flickr.Types.Private Flickr.Types.Public}
+  Flickr.Types.ResContext{Flickr.Types.ResContext Flickr.Types.resCtxtPage Flickr.Types.resCtxtPages Flickr.Types.resCtxtPerPage Flickr.Types.resCtxtTotal}
+  Flickr.Types.Safety{Flickr.Types.Moderate Flickr.Types.Restricted Flickr.Types.Safe}
+  Flickr.Types.Signature{Flickr.Types.Signature Flickr.Types.sigComputed}
+  Flickr.Types.Size{Flickr.Types.Size Flickr.Types.sizeH Flickr.Types.sizeW}
+  Flickr.Types.SizeDetails{Flickr.Types.SizeDetails Flickr.Types.sizeDetailsHeight Flickr.Types.sizeDetailsLabel Flickr.Types.sizeDetailsSource Flickr.Types.sizeDetailsURL Flickr.Types.sizeDetailsWidth}
+  Flickr.Types.SortKey{Flickr.Types.SortKey Flickr.Types.sortDir Flickr.Types.sortKind}
+  Flickr.Types.SubCategory{Flickr.Types.SubCategory Flickr.Types.subCatId Flickr.Types.subCount Flickr.Types.subName}
+  Flickr.Types.Tag
+  Flickr.Types.TagDetails{Flickr.Types.TagDetails Flickr.Types.tagDetailsAuthor Flickr.Types.tagDetailsCount Flickr.Types.tagDetailsId Flickr.Types.tagDetailsName Flickr.Types.tagDetailsRaw Flickr.Types.tagDetailsScore}
+  Flickr.Types.TagID
+  Flickr.Types.TagInfo{Flickr.Types.TagInfo Flickr.Types.tagCount Flickr.Types.tagName}
+  Flickr.Types.TagMode
+  Flickr.Types.Threshold
+  Flickr.Types.Ticket{Flickr.Types.Ticket Flickr.Types.ticketComplete Flickr.Types.ticketId Flickr.Types.ticketInvalid Flickr.Types.ticketPhoto}
+  Flickr.Types.TicketID
+  Flickr.Types.Title
+  Flickr.Types.URLDetails{Flickr.Types.URLDetails Flickr.Types.urlDetailsType Flickr.Types.urlDetailsURL}
+  Flickr.Types.URLString
+  Flickr.Types.User{Flickr.Types.User Flickr.Types.userAttrs Flickr.Types.userFullName Flickr.Types.userId Flickr.Types.userIsAdmin Flickr.Types.userIsPro Flickr.Types.userLocation Flickr.Types.userName Flickr.Types.userPhotoStat Flickr.Types.userPhotosURL Flickr.Types.userProfileURL}
+  Flickr.Types.UserID
+  Flickr.Types.UserName
+  Flickr.Types.UserPhotoStat{Flickr.Types.UserPhotoStat Flickr.Types.userPhotoCount Flickr.Types.userPhotoFirst}
+  Flickr.Types.WhereOnEarthID
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Auth
+                     Flickr.Monad Flickr.Types Flickr.Types.Import Flickr.Utils
+                     Util.Fetch Util.Keys Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Data.Maybe 5034d40e23c3a7110309f188001df4ca
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Auth 8f179abded5c7da3ddf9aa55af8ef908
+  exports: 849e9e628262908c761e3f78263dda2e
+  checkToken 5680fa526f0cddc2c3ea72fb0a874dec
+  getFrob 7d50db5cba01de6f6de747db689bbdb3
+  getFullToken c13018bd68ce284b0ba8e754fea318ec
+  getToken 62a383798da5f1cfc1c52f4aefbc9c10
+import  -/  Flickr.Monad 6de6ab67db79412c432c6826a71bd502
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  EmptyResponse eda0615467af00522bcd78477c881314
+  ErrM fbd054e20863a8c2359e31df87f4e08e
+  FM 0ced6596a40cf9122bdfc25b7a80a0c1
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  FMEnv b85524d7eee4989d339e83f188afdcdd
+  FMEnv d9e78c6f04e63bd2cf9f505d4221dfd9
+  FlickErr b18d63056520be51eb2221690065b70c
+  FlickErr 7d6dc1604d1bc6ae0bd1a14aecf51341
+  FlickErrorType 599e883a42e77415365217c4b7d85a50
+  FlickParseError 192d4aa25a753cda219c74853fc2f4d2
+  FlickrAPIError dc51ec80a83e3ac9c3f474d299c2a727
+  IllformedError efccf5ecbf30759afaa3fff8e258632a
+  MissingStatus fd45db3407994d36e2c369b99ae53949
+  SomeFlickException f46708454e4cc76fc1372d4d62212e46
+  SomeFlickException 875f5941a2d953944d01ea4ce437833e
+  UnexpectedResponse 883f18e899b9f679057164617d0a9f94
+  api_base d599f0f819c38884c361ff887912dc0b
+  auth_base d635ce9502d470d8eea1fc2908743bbf
+  catchFlickr 16850bf39fe313a99d4c2e8943eddd04
+  checkResponse 260e72ebca185e13b36f9373fb446949
+  eiArg 051cc948abbcd461f14365b73ed185aa
+  flick 2579a2184d6bee9861eb81b7266a8437
+  flickAPI aea39b0f6723bacc4d08a522f01e3c0f
+  flickCall 251ebfad767c69b4942bfcec2091f0ff
+  flickCall_ a4b037ad88ec2630c5c3c4b581c42182
+  flickError bb5788ad4bfea24a52298ca86edc32f3
+  flickErrorCode 1f398f9ef67facf9b4b765f8138a6bd2
+  flickErrorLoc b11b120ac890d2f3452e35d3c14d35b9
+  flickErrorMsg 3120bdce1ec25e8e3c63c4e44e88d3af
+  flickErrorSource 773c9158e7aff8c500ec10fd8b3ce7a7
+  flickErrorType 58a235868e700f46d7077c426b04353e
+  flickFromException 87dcca962c09a06948e8105a869bb688
+  flickToException 94fda8bbd5bcafc66158b8ac4bd0c90b
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  fm_api_base bc41cb7281ea728fb0c34ad3e2b74161
+  fm_api_key cbbe1a44208c509bbd6e59be78da393e
+  fm_auth_mini_token 4c09435187bbfc78694768d513d1172f
+  fm_auth_token 9a890d618b671ee99ad1d6f306a0e9dc
+  fm_include_props 961181bdd4e8f6c515b0bdd590dc3aa1
+  fm_is_paged 9a1882c5f6d930576be7014fe623430c
+  fm_is_signed 219a1c34b835ceca0003e50ab3334a7d
+  fm_page d1e09b6df3d4a2436be45ba33a48c92d
+  fm_per_page 458a363ef42edcdbef06e7bf1bcf46b1
+  fm_perm_level 679f0687ac9a34d71755b944c4897665
+  fm_post_method 6339bded817408ba14c0bb35ce88a38d
+  genLoginURL 982bb82053e457298f87c9dfe9fc30ee
+  getAPIKey 90ed3fae60dcdb674a640979c9ca81cd
+  getAuthMiniToken 78b8503e7c704db88b5c762f76e3f9da
+  getAuthToken bb2782b22b3b4c92f3e6f353c393180a
+  getBaseURL 829d375f052c6d660d09683ebf72f3b3
+  getMobileAuthURL c8d40cfb24047e5772a512268d691c00
+  handleFlickr 40c31e83ed1d1ea69e7dd32d112beb57
+  liftIO 85019a12faaee5c2bad1a18226d8a82f
+  lsArg c3c9ceb6cf2fc5ee33bd67fb297f08ca
+  mbArg fa8e1aa0b07207d002e5dac562d3d3bf
+  mkLoginURL 91efd66d9b220f46acb61ca232122fdf
+  onlyTheseProperties 7200a659586a304e5dc21b7f96938417
+  pagedCall 83a5b823f456abdff62fe4d3a2b479e8
+  parseDoc ebc82270611937ab5ebfce244f09c14d
+  postMethod b894fdcbd5b83d21dfa037dd8bba6dcf
+  replace_base 5014bd23041c573a7429282b0f2343ec
+  restGet 703857a8d32044b789706c9235a9102e
+  restPost bb631a52f41a8a49cac4eedfb7646174
+  signedMethod f125e7e6e5208bcd7826f3bc4f81f647
+  throwFlickErr f96a0fcb50ff6e6800b51da45da4b68a
+  tryFlick db743e147a71926bca94135608af6fa8
+  upload_base 5cc832c0f22d7e0cf4bf5cacea477d6b
+  withAPIKey 06c14b5b59f3d356c7267ee478cf6985
+  withAuthMiniToken 717bf397bacda6f23fdaa03f7cb8fce8
+  withAuthToken 445adf74acdb9db842443d1db438f476
+  withBase fedd2dda892d3995bb1cb6e76c88b2e4
+  withDeletePerm c84b476e88a18f6822791431226ee9a5
+  withPageSize f522bb19233c2ffed4660462adcca066
+  withReadPerm 6aa3446da9d22d6d7f84a29bfdacb8f8
+  withSharedSecret 97078ce8caf2d2893ea5231f644f07ea
+  withWritePerm 73ff2a63e3ab148ae336fe33c2f18317
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  AGroup 050fdabb7bb81d636d37131319f1f8d5
+  Accuracy 8bd4ee12142f445991e03afe08347ceb
+  Activity 6449a888e3bccc83ef1fd44c1e6e1ab6
+  Activity 5717823e1dec5f3b208eb808a6e7f13a
+  All 1d0796393fc99fdfde1bce5142b00813
+  AppInfo b68feede7ef781408c0083e1076065d7
+  AppInfo f932462e8db0aa6ac974da62b55414d9
+  Asc 4f15fc347a016eb554d62bffc7028dad
+  AscDesc 98378cd97cd9060c79a14cb2e3f641be
+  AuthFrob fce1cdc6d2c655736113434581db6fc3
+  AuthFrob 78f1849e1e4cd62d7d433afb898d55d5
+  AuthMiniToken 070b6136f6560fedd6bab7f04c43d718
+  AuthRequest 6d429b958dc447570f505d30c8c75dc3
+  AuthRequest 8779df85f5953d17cf5226abbb3883b8
+  AuthToken 5743e33517beea2dd269c274305f55fa
+  AuthToken a2e2a7b700cf766eb756920590f94ec0
+  AuthTokenValue 874b134dd2621fa2af13215b45ed1328
+  Bandwidth bce2d6af6ef763e649d95b192b4eedb0
+  Bandwidth 52f02f20b5238b5d22bf6119fd16c065
+  Blog 2af265ce2a41822cfd5c04a3c67341ee
+  Blog d28c5a0b437dee5798740ae6da10534f
+  BlogID c2b63cc110d2d7a8531f91c796409f41
+  Both 723aa6a41531dbda8a628dc4689ba70f
+  BoundingBox 7f9c4e3f4587cdd5e87ce5840982daa8
+  BoundingBox 22f10c6bb413e86c509c9932cddfde49
+  Category 0a05004cc767b2c7a35990814928cfdd
+  Category 16bc1d94d00982af0df627f78e760db2
+  CategoryID 1ba65d85c0beea82b0137a714c293e4f
+  ChatId 53873b078cd2136bb4ea2bd3128f6863
+  Cluster e8b11b8d5761c87e47f1a2f5396788b4
+  Cluster 6909cb1a0baddad0a0508e4e75c9638d
+  ClusterID 861a0720a4ef61d8530ab289c18cb591
+  Comment 5ed9025917c23b75a0520fb54caf42e3
+  Comment 494983341f44d73e6ff4b0810cd80eb0
+  CommentID e664f0f9f82650f48337e7eae3f3838b
+  Contact 2ab037818e1dfec8a5b1e1252df9fd08
+  Contact 79e50a5980414b947f9c4aaa63961cf2
+  Contacts 24e0805b743bd7a7ee88c0ce11f0d8a2
+  ContentOther 2f7ba34af71b7fe53623c5c0b81eaef4
+  ContentPhoto 72eafc23cb44c9ebc2a4d57e112dbd5e
+  ContentScreenshot 3a3ab6fd861b7323bd38edbbc97793cc
+  ContentType c95f74205cfdcf8a8a1f92c75fbaaa57
+  ContextID 7b8f3b8107011793386a8f67a29ebe3a
+  Date e7986bf164b0885fcbe9146747083d6a
+  DateDetails 57482a4dacfc5fdd53494b5e84e1db64
+  DateDetails 4a6950cd2e58b5ae88071bdb80be45d2
+  DateGranularity 436cff5365d686fd8c82d04e98657449
+  DateInterval 4927c1b8cfa401f9f8098cba09bc3f83
+  DateString a427169cec8ea5149274e8471b82a83a
+  DayWeek d880a9d4fec2a47be74665a0ff0736cf
+  Decimal 77a4e3d1918bd296f4fe59e3d2154e4f
+  Desc c5bc04aaecb0ba2725ee81af8f1481b1
+  Description 0f09844aba820db62e5a35c62e31daf2
+  EXIF dbfbac29e1df2711ddbf888152a1ebfe
+  EXIF a580ac20bd7586db9196cb2dd15f8216
+  EXIFTag 998bc8086fc2d41b1048b95a152cbd13
+  EXIFTag 20a5e2b2f951635824531ae984580027
+  Family 06bf04ee6a5fcb35ef78d6af69b832ac
+  FileSize 346769bff601b172535f3a5f7380c642
+  FileSize e65c6b7b881286adc105dfb734774a3d
+  Filter 0f7825947d167d332f5c7f0d3c146ad7
+  Friends 7dfec6af2f211ff4fa29d0467fae3b78
+  GeoLocation 4700cf4cc29149d83f21d2d0920c036f
+  Group 48fa92d57c8ca6b1d3c726ae3493dcf2
+  Group af878999f035a0a349d907549a644796
+  GroupCat 3b648eef8ab4d5fe617c723cc1eb5f8e
+  GroupID 814d222d53ec49fe860073bc3ecfc0b2
+  Item 421643bc4ae998064d832748c59178bb
+  Item 7a51b1069005a863a9af09d417e3d2bd
+  Key dc42b5bb92a543be1e1d0d98184e443b
+  Latitude e784c5d5b1eb02f473f1ca9412deacad
+  License 7bcf2720b67b0d1959396b4860ffc0da
+  License 8fe61a0bf33cb78246e7c9bcb70e444d
+  LicenseID 0c87926020657d21f262a1fe20a9050d
+  LocationPlace e4bc3b4360f928d87dc594fe073cb530
+  LocationPlace 8560d01a391eb1b4d2101fe4f700fd77
+  Longitude 8118a960e311f1e794410d695eb238f6
+  MachineTag 7444e90d34b8502447bdec204d726417
+  MachineTag cda52e3744bc7815cec29ad295f847f3
+  MachineTagPair f70c88c972f4755a2623dbc4c8a68fc6
+  MachineTagPair 3112886918507c757c431a3d0b4f4eaa
+  MachineTagPred cc16837ff8d088c26f90bb9ead390436
+  MachineTagPred 8df02b831e247f6d244e665c89e0c01d
+  MediaType 99f5356ae5366fc74c6193432f647e6a
+  Moderate 1422781a6b8e604ce697a1485c81a0a9
+  NSID f46f8fa1b25564f5057071fce470be51
+  NameContext 1fa1d4cd071d20c96481e0c0b4b7290b
+  Namespace a271991e611fb30f1d11ba27512e4895
+  Namespace 0a5955fd7772102063ddce34db87fa8e
+  Neither 88690cb7cf1b12e79e5c01d9e4755a33
+  Note f580d1f7b98334a4555b62d5698bcb9d
+  Note f5acb7f3eae2db69ae3e7930d5fd7ff7
+  NoteID 1d079b1d8fe7d722063eba7f2cd4f14e
+  PermissionID 8fa16111e77d0131db93c31a3402b4ec
+  Permissions b55132743ec59b7943e86e471ace1586
+  Permissions a4059c629f69c00c0f9f59f337a7865a
+  Photo e9ffc9b985529f4bdba6a9127996386d
+  Photo 2deca11afc0a961b40b35bcb8cfdb204
+  PhotoContext 1012f98f7ccf09eff166d1496fb4c4fc
+  PhotoContext b13240513008c5723d6a1a8824274a9d
+  PhotoCount 3a0b41dfc13cac4fa6571edea85e3594
+  PhotoCount b670f83ec9ce63fe824032084554eebd
+  PhotoDate c21d7cb6c9b097d868ac0b8ff8f3d28b
+  PhotoDate 1bba3b96bd10d3a0ee49efa0ee2d348c
+  PhotoDateTaken a0608dc1409feab5f1fef29ce1abd209
+  PhotoDateUpload f968b5aa8f38dd01c46dcbffef951ef6
+  PhotoDetails 71a54ebef3d7272d2a2e2c5949d5c0db
+  PhotoDetails 341128c749a7d878c444c56c8e108dc3
+  PhotoGeo 4b6ec7b04fdd6fec9d99b34353aa226e
+  PhotoID afad6d42cded8baa9088f416d88f77bf
+  PhotoIconServer fb7d139c6acec1247c1cfdab2dd5dd72
+  PhotoInfo 80f14b9fec26e6389cc8843e842ac6d9
+  PhotoLastUpdate 3affb5e161bf2b907a624c1d978d1ef2
+  PhotoLicense 12f7669579d45e06b31b0c03cdff04df
+  PhotoMachineTags 006c4439a5a0b84644ecc70a8ce56809
+  PhotoMedia 0f704ffacd349b1fd7e64c410f42d9d5
+  PhotoO_Dims f6980de7ee09a028e06e80ffea0f1431
+  PhotoOriginalFormat 5c2cf5679656a836faba6c7ff8f6770b
+  PhotoOwnerName 98f99243eeed61ed9c37418a61ae13b6
+  PhotoPool b1d3e737874360efd01dd0e98a2b60ac
+  PhotoPool 9d3b50b2ab2da6ab4a0fcda2964d57e7
+  PhotoSize 58bf45fb826d8e8b27a3f7e2591f1f6a
+  PhotoSizeLarge 4f8bbe007b680796288c8e39826c6b4c
+  PhotoSizeMedium 26a0e98829a8ffdf6d70ca44aed4d5ab
+  PhotoSizeOriginal f75da79e1d9dc8e1c1c8b36d8437dc36
+  PhotoSizeSmall d9479c4e1c1562a1e8f40b44da654718
+  PhotoSizeSmallSquare 07411b2d09b9c22dfaa5a5a3b2e30eab
+  PhotoSizeThumb 4f03f647ae6ddba222d98266e2b831ce
+  PhotoTags cdb6fa7a5283c007182cb9cadd36ef71
+  PhotoViews 046eb59edade222da2b3428aba7d54f9
+  Photos 2661b09e42c96e28a053dee7820dbf0b
+  Photoset bc6d53a351a48e6048fd8c843ece754d
+  Photoset ded0f4fbb84c8010c83e3ae825aa5eda
+  PhotosetID 7a4044ff0e254d15a2d6c1d0386e50e6
+  PhotosetQuota d7ce42c20b6fffb83b0eba135062fd7d
+  PhotosetQuota f64dd8c26447a298587ff65042da11c3
+  Place bbf7a4bb7463b3cf8d5f4ab1b962d4ab
+  Place 487fd5d3fe26f7defabfd4eaed9f914d
+  PlaceID 33fbdda9f0861e717e1d3521228b5a6d
+  PlaceQuery 4d4440840102a69c0ce47c220c819b05
+  PlaceQuery 8d2db3468022fccd907797cf82b30411
+  PlaceType 1347800f71c4e177b105708c71472892
+  PlaceType cb991de727e2e32de7f263bd335e4e9a
+  PlaceTypeId 0abd5858cc23c73611201d0a320a3430
+  PlaceTypeName 41fc7156f542f55fc852d8729aa7552d
+  Point 028190780d926584f89bf3cfbcc2481c
+  Point 5098d4812d92033c58f53ab41fb3b9ed
+  Privacy fd81207a7f196a1180a47b91a275a3b7
+  Private f8b8f9a86b797fcbaf5b40c7a7a47982
+  Public 534f6e5f78f60843de197a6bf8fef47a
+  ResContext b6bdacc50f3546f492b5c4e23b2e99d6
+  ResContext 28de0b11cd439f5cd05840267825cde8
+  Restricted beb7d50361db3436affcdfde6b87d7c0
+  Safe a5b8db8d72341b4237f2bc36150720cf
+  Safety 3e889d9e2f824714d8a9cd713c30a35c
+  Signature c7ec5cfc895695061ed1cd91e953c2e3
+  Signature dee39168ad4cd2c20da58cfff337dfba
+  Size 3582b19afe4e47dba6c7f45b81aca382
+  Size 51fa3a0c9544ef04b7652e636822d62e
+  SizeDetails 2bdbe53310f27dbd8756c4866f346689
+  SizeDetails 033cc30024d8161e2c60d3ce93617d70
+  SortKey 0abe9af85048a2b3df52666ac473b567
+  SortKey 141400c0fa0b73369469081965f4ad40
+  SubCat 9e006b265fa2789b9309c6c290017d0e
+  SubCategory 21a7eeb6aaa30062bdd66ad02d5affb9
+  SubCategory f0e8ddd79cc57c3bf8904ea9f60e3e7c
+  Tag 594aea30f29023f654431318539b9dd4
+  TagDetails 26902dc79d87081d45e3caeee48717e4
+  TagDetails de3681f66d620aa5246baa9d81bdee18
+  TagID e4622c5566af9eb9dd4663d540754e10
+  TagInfo bcd029d169fe4faa6328fd5ead465dd2
+  TagInfo ef574df3355038850de619c1b9a8f352
+  TagMode 2ff1baa6718bc19ab7aa73e8f0ea0c72
+  Threshold cad7a7183862dc733dbf5691402375f3
+  Ticket 48d3bac6523179ddc7f2bed877a29c07
+  Ticket b07ccf0889396d437def517fab179617
+  TicketID c8f196a13c70ec29670d96ddb0dba7b5
+  Title 59e2ae57b02071f479ef98256eda64dc
+  URLDetails 85428ef4f2a0b84177cb1d8c502baed6
+  URLDetails 8e73e005b91cbf013af7830615987d63
+  URLString 32f844fecb624b165352138e161a92d9
+  User 8905684e6794bd159d1f02329fde4cbd
+  User 5f85fd7c8b4696b56ab0c1231a6049c3
+  UserID c293dabe8f0c6a26ce6f08bd072224fe
+  UserName 8072d29e100bd6d5bffb7d99e3dfb8b3
+  UserPhotoStat 48658d3bdd12e1428ef8e1c3e1d5cba6
+  UserPhotoStat 1c644e51a7b7f0a6fdaa42223a74cede
+  Videos 2196466df6681e89ab2f5ccf9d516ac5
+  WhereOnEarthID bc4b53942522074527ee64fdb076b609
+  aFrob a21827715d62bb9e13fbb90ac15e0363
+  actContent 503e3e66d8030a33a52c26cb28e2fd72
+  actDate 3d55a719da29ee232d63ebe8991a58f4
+  actType 4af6760a272669a62ddeb792c4c89a6b
+  actUser 70f3e55efa37eb543d7480fa19fabc88
+  appAboutURL bd692ada2f499c12514ba31f15c02c6c
+  appDescription b1766f960e165e45aba81e46cf89c0e1
+  appLogo ec66adeafd97a8fb23b35c7578f60fbe
+  appTitle 4faad47fb00884e2940eb6548ae3378b
+  authFrob c51ea2a05b60f50c5536717c8b209d3d
+  authKey 711c72deb9f5ebeb1d939c0920f218a4
+  authPermission 4800939ed8a01a420eda2497af2e82ed
+  authPerms d6249e0b9292dbb730eb218f51c08b28
+  authSig 93bb955ce3ef36cedc1b89315ee0c008
+  authToken 60aebdb100488540728dab8984cb5242
+  authUser 75650d3c5a1d9f8f8cdf14b0441cbbba
+  bandWidthBytes e7c96c4939d7a3a57c5af23a27f1b09a
+  bandWidthKB 1d12aafc57128172ba10e2fb2ec5b447
+  bandWidthRemainingBytes b5e8ed33b2bca10a9373c3f05889cecd
+  bandWidthRemainingKB 5ad5a8c20f679b329ae2ff0b66f90e69
+  bandWidthUsedBytes 0443a7fd5239688be60833c0f5b9a4b0
+  bandWidthUsedKB d1941dd2b3ee2df1764f081a2b6b9c1d
+  bboxMaxLatitude 0668b2b8aee2b26e1bfe89a397d5beb6
+  bboxMaxLongitude cca2e9414cb529c9ff63e7bab2659458
+  bboxMinLatitude a2a755f55e5c71853cf7261926fa6c79
+  bboxMinLongitude 606cb7d3a94e223c3fbefbd8172486b6
+  blogId 0486445f80550679a98a3e0c5694c681
+  blogName eee5c5647f456e0b028f95c71ff6d14b
+  blogNeedsPW 455512bd68df21c745cae25caf9b3d50
+  blogURL c76a7648546da922c4d3e26d28ad6d2a
+  catId ef8c604719e5d2616b459ce619d04f1a
+  catName 9bed3efcdca1113ce12a5661939366f6
+  catPath 5822e8dca30526a07f61700b5f57e190
+  catPaths 9c1093c4d00cd7865f257480c4412bbb
+  catSubs 594209ff7e746c2131d2d62b66ba1162
+  clusterCount a96a2ad1c7a0b78c2cb09ffd73ed2f6f
+  clusterTags 2ca263002e9fdb350a754604518f22ef
+  commentAuthor 8baeb29ca9a7d01ee5e33e0ca5bd689d
+  commentDate 5315beb27d47c409313c282d112b2ee4
+  commentId cddc46ece4cff17bbae74d9a32253200
+  commentText d78dd765dc677b8868bfd207723e5174
+  commentURL 998576e8254b78116c7511faff03bdeb
+  conIcon 0def890d1a3d71a27bfcc362298bc08d
+  conId a817fd6282c8a92207b8d4519629bc85
+  conIgnored ec15dbea6672dc933f8ce06ca4f9a2dd
+  conIsFamily d301fa31a04894ec3c734521c0f7335b
+  conIsFriend 19ea967cd11f2a31383fd7051fe2c6db
+  conUser 72e04ae83a62c98daf13185c78a2e19a
+  dateMaxTaken 0e6952cc34261b3103e83e58f6659964
+  dateMaxUpload 15b6ac8e4fd6347b806ec4ef87bce885
+  dateMinTaken f334b0da8ff3cc101bc80fb6e977116c
+  dateMinUpload 298ca900da493d89be70316696367a8a
+  exifClean a293dd5c775bf54ba42fe142f524ab19
+  exifLabel ecc316793946240f979f3b38ae3e0489
+  exifRaw 47d42b1534c77d5e1be9d4b4bbc5038e
+  exifTag e9294c9e7528c8134f7afce7a69b08dc
+  exifTagId 878b387279a3c7cf4bf52fff8ee0c83e
+  exifTagspace 5398e008e856bb39a55941bff17db4a0
+  exifTagspaceId 342154da186463397171866572834d3a
+  fileSizeBytes fe823b7184195efe4644f859427cf109
+  fileSizeKB 498fa9c4b4bc584955173e0078c534b4
+  groupChatId 2985f9aa80387fca6ba398568eb9c83c
+  groupId 706c712e5f2d96d1c6335a588466398b
+  groupInChat 173615fa54211fdee1efd9e6e4f4b858
+  groupIsOnline 791bf1a9fbd83f8d098ddd7190db6333
+  groupMembers b65e4378603b3679d48ae5279aed79bc
+  groupName 3ed3cbc74ceb1059ab764709a8643c2d
+  itActivity 62be34090cd7b6d893c3cfb740f85dc9
+  itComments f0f088aa3561eb080473c0991d5eb6e1
+  itId a5274641adb2fdc20e6d4fd057c1ad72
+  itMore 0d6c4b98a57582830cea6e309fcdbe66
+  itOwner 2de862bb4cfd9eb1f3fd0c04f268fb35
+  itPhotos aa4834b7c5efe9b0ca2852cfdee0c4f4
+  itPrimary 487ff0085887e5ee0d6f987f0c4f65f4
+  itSecret 823bfc845c49fc1e2f9e23b3d8f44d0c
+  itServer 12bc1a331f7024d3045178452b041e35
+  itTitle 2ae97cb5a9ce251cf6fc4040268631a9
+  itType a3bb6c344e4bf248ec74a37632bbd313
+  itViews cf96439d209383162f24e792ff033973
+  licenseId 389c3be1c011ee9b92a20eb3950e4fa9
+  licenseLink 65c37ff9e7facc917df02f06b7714ab0
+  licenseName 54dd62b16b640b3575c8d3573eea23fe
+  locationPlaceDesc dae1fe51e014aa3b98d516ff20b28c09
+  locationPlaceDetails ff408468fb2a70ccb8ecaef11b276bf3
+  locationPlaceId 396ae739d98575d5821effa903caab5f
+  locationPlaceLat 2311fa11981618cee97134fc82ba362a
+  locationPlaceLong f8e7a83a41ee35f8f90aa5251d126b23
+  locationPlaceType 8bd0e205d4f6f58011dc76426b3bd2f0
+  locationPlaceURL 17c7889f7944f0e6d120f00cff4ed00c
+  locationPlaceWOEId b5be9b3899b9b9b21d6d297026b79e63
+  mTagNamespace 2c29bf8f0bdd8f4d8e5eb62aa513271e
+  mTagPredicate efd61913debe85ed31ca88f005f13f62
+  mTagUsage f5307ee35933f07be0e284bdbb23386f
+  mTagValue 504231ccd1fee0ffdaacdc57f00d6707
+  mtPairName b7c8035753a759d147c0b26244531e76
+  mtPairNamespace f7921b7841f245a1f27658868cc7d7ac
+  mtPairPredicate c37bb830698f90adf0b628ee2f0a4c9a
+  mtPairUsage f9fe8cc405004f7dbb6075705d9fa4ae
+  mtPredName 9241d10acc97d43cd7aeb0e4d39a5401
+  mtPredNamespaces 5da43eecc9c1130ce19c7641bc1bcb87
+  mtPredUsage 34e671398917c6046c4e69fb300b654b
+  namespaceName 68a9e473a304d5c1cb80931691dc9772
+  namespacePreds 2c93a8f9d680dc753ac2fe6db9a25477
+  namespaceUsage e88ebd821a030a4bf8419b443d62a566
+  noteAuthor e8465fd02348230f8bfeccc7e941f122
+  noteAuthorName 3bcd70b059b341a90e2c31ac1649306e
+  noteId fa2e726745cf071669f5170ca042fc4a
+  notePoint 9890d28a70c4f5d1030363a522807e68
+  noteSize ca9a57ca400b6fa80823806c0d6789e9
+  noteText 7cb72aff379d218620d2d1ad007190c1
+  nullDateDetails d53d6dc0b4a0f0b7fbad764409c9c491
+  nullTagInfo 2f31d298c37de84c4138655aa4af2c3a
+  nullUser 27e5508db85ccb8135286181f9b8cf9e
+  permAddMetaLevel 6a3cd08bba38117ce9526503de0ac13e
+  permCommentLevel 4169c918c87b707df7af79db86d202ea
+  permId 4e108211540e4474160bfa961be26b17
+  permIsFamily 52849efba9643dd0a6f0cc073d917aba
+  permIsFriend c7efff80d8215a30c5f90b403c3f9983
+  permIsPublic bd7646914c2052191473085312967bfd
+  photoCount 8d73e8676519aafa41da87d62a94f02b
+  photoCountFrom e71699d2014e56cc09cb9fa69ef9d4c6
+  photoCountTo 7fad73c2df012f8e9a10042fd0b0b51f
+  photoCtxtPage 67bcb2fec4f36c8c980b4d46395f4983
+  photoCtxtPages d10f34e28987c5a4098c1dc1dec316c7
+  photoCtxtPerPage 738c6401616d9fa8c597c9314b05c2a4
+  photoCtxtTotal cf87fffa1b45dc8d8edc31395443bb62
+  photoDateGranularity 78a7fc8d3c03c660841e7e020b8c97b7
+  photoDateLastUpdate 94a390fdd73738c4dcd244b25565d13e
+  photoDatePosted 0773c8c76ccd521a867e2874c771cb6c
+  photoDateTaken 129a1d532947477b40df2ef473609175
+  photoDetailsComments 31759f873d3340cf07c5ba1a6e771513
+  photoDetailsDates 7436caebf40158f67fcc8a4c64f39295
+  photoDetailsDesc c80b3e8d3dc59577d7243c1ce734aa58
+  photoDetailsEdits 19f645c41eec9fb2c81a647841e78be3
+  photoDetailsIsFamily ae3c783a2adbf02fee802e58a43de041
+  photoDetailsIsFavorite 9c214fbd5abf3bb012cb174958c47165
+  photoDetailsIsFriend 9a81228c6b0b6cb9daac58a81b36fb39
+  photoDetailsIsPublic 275b9156615460781f2535aba5141746
+  photoDetailsLicense cc9814dfbb7a4f0a91e56fc463e55b05
+  photoDetailsNotes f72f70bd4f1e7ab351a6ef7aabdf79c0
+  photoDetailsOrigFormat 0d46173fdf6bcf774251b6546f8a79cc
+  photoDetailsOrigSecret 51b397c2e03c78c64b5d5a3d465d80e2
+  photoDetailsPerms 2ccbb40f21473f9e85389eb4c495c66a
+  photoDetailsPhoto fe4e1ada259a8aa3a070261791dd0339
+  photoDetailsRotation 55fc342d77865def3f04ef0ccd147100
+  photoDetailsTags d68d649758d3fa85ba6bdb7f75571304
+  photoDetailsTitle 3c15d7d2cec38d58327b860f4bbfea98
+  photoDetailsURLs e6803c1dbe789f2d66bad76fc61dc5e8
+  photoFamily 86ece6e7f191a0b74993982c46fdbd33
+  photoFarm d2a8cdc9ddbb3b3c50c9286266083f5f
+  photoFriend 04f1304c15494429bb4ddcda35ccde6e
+  photoId db6a3c62f2e356e67d78283f88f1d940
+  photoLicense 6309b1bad7ee028523047c0614a375ce
+  photoOwner f1a43c7ffce515a8aed5a67a595f9700
+  photoPoolId 5a9dcbdfd8b3599112375f93a64492a2
+  photoPoolTitle 4fccb0cfa6ad1f469b5cbe7df80e5f22
+  photoPublic 6e61227de4997ac788acd3713ca109c5
+  photoSecret 9d80ff4b9acc198adfb178c1c3012391
+  photoServer eb574fcee4716504a0c76ad597e7b9d6
+  photoTitle 9e7da6a2dfef7165e02b2d6c4771a01a
+  photoURL ed75bc9caf9f7fcf5fee0ca2b842fe74
+  photosetCreated 31a8aa506cc37688b30da9d54f138413
+  photosetDescription fdfff07390db4164793d83a61e79dcba
+  photosetId 76ec8e20316dd32df28cdb96e11830ed
+  photosetOwner 512a6fba348a643aefe33cee38b25a77
+  photosetPhotos 6b5b7a248d8567acc2023c955c154a72
+  photosetPrimaryPhoto fbc0e21a95f0991aeae2a5eef1fa0ec8
+  photosetRemaining c571b46c0164ac6b6f24f8a82e8be7ef
+  photosetTitle 28a1faff3104bdf0f01ceadcffd93a55
+  placeDesc 75969c0292262f25b6965ba2099bcd69
+  placeId c2cb8e9019fe7193687a4e85202fb120
+  placeLat b5a9d49f31e1d0715e6165d48abe7bed
+  placeLong 6eaf954e92da48e289c2eee3d2fee332
+  placeQuery 9e21c28b5f75ade7aeefc6f5ff79aa1a
+  placeQueryAccuracy bbb6ebf0601408c931ade375afecce92
+  placeQueryLatitude d8198e8698e9962aecc621d57cf0d8c2
+  placeQueryLongitude 8a9d6f639c2e7c2203b15e198965bdf4
+  placeTotal 0c15340e02b8fab9f57ef036cdb4352c
+  placeType 539e01e105dc6ace449e92d599d74808
+  placeTypeId 6dfde94c14c4b5c1397b8fba12cf0391
+  placeTypeName 2d44e0166c749672f3d9b023f9412661
+  placeURL d20ff30cf0915665f914fc7169501d5a
+  placeWOEId 4ce04c27f0d0f8f489af580c46d36772
+  pointX d4d353fdeaa92bcac49bff0336366865
+  pointY 1e26c96c1fbed23bd710c2faf114f3f4
+  resCtxtPage b7d4d9bdbe6c81bb999ff629e2e9b27e
+  resCtxtPages ee77b54e6cb1ad756689dc3aad6802ed
+  resCtxtPerPage d6596714999dbe559028816f3e369755
+  resCtxtTotal f9f240b8d45f2161e1b579c7e80a5bd9
+  showContentType 6c992732c91b24b721d6a74d55e179c2
+  showSafety a68f9cab6dfea46399d3b666fce8ff77
+  sigComputed b019235ef4e3785e777021679b9d8425
+  sizeDetailsHeight cdead52efbefc65ced0237da9aad9cac
+  sizeDetailsLabel 4083d6fab23628f09f53b8bccb1da4e0
+  sizeDetailsSource c1235918648700fa4340dcd5f9b1c4bd
+  sizeDetailsURL 4b8a208447b61e30492daf320fab8a80
+  sizeDetailsWidth 7797afc99294f8bc832b2535975dcf55
+  sizeH 7ef7d6defa0df74dd6ded9054f350e7f
+  sizeW 51d48955c7029a818475f071ee564415
+  sortDir 7d1dc686ca9482826afa917a11b809c4
+  sortKind 73c6db4b7b98560d3c1e7eb994f60c1a
+  subCatId 111b9fdcda12e15d4a5ae9221be67663
+  subCount b272cade76bc1fa0c21a730125f23210
+  subName 51d5c84998fe57810edeb6abd5cb297e
+  tagCount c1b7d5f6d2a3b25d99a71f668c511a40
+  tagDetailsAuthor 7f2030a0cf550dc0cf30221715a3ad37
+  tagDetailsCount 74c2f142035d7769b1b01b1422c47db5
+  tagDetailsId efb08fd2af7f6c5fbeb8ad758727887e
+  tagDetailsName 251dd53caf9112802dedd849687846e4
+  tagDetailsRaw 02c08acf50965c040cef86b3e4c8c5a2
+  tagDetailsScore 4f86a3560305dd17d8c761c8288202e7
+  tagName 2de5067abb4f9c3aaa5f23bf69677136
+  ticketComplete adfd90d5645f3fc8086e04d86e165e32
+  ticketId fbcc72375ce6fb32b9566406a18f9ab4
+  ticketInvalid 510b8bd09d23acd7ee8d6c4a4d020252
+  ticketPhoto b1cec79395df71620bab5f5c328fccaf
+  urlDetailsType c715515982af2b427235493939f9cc8b
+  urlDetailsURL 997761881484a16487f2e567f32d6497
+  userAttrs 9209e618e69c9130ef216b550e494ba2
+  userFullName 0362b098ec286e1b746efae211585806
+  userId f17112ed6033ad18aef978985a6bea57
+  userIsAdmin 3a15be801d183e7856dcbd4c1743dfa0
+  userIsPro 38470aade491f39008fa504986c7fecd
+  userLocation 67c10fc4f7d9eb6b8aec6245fadafb50
+  userName b0e473b5c7921d4759744894ff1c46e4
+  userPhotoCount 1391b111d02eebb82a6a3667852755ee
+  userPhotoFirst 7055e695782523137ef6e18219d66ab6
+  userPhotoStat ceec0cea6b181be1d903acdb706284e5
+  userPhotosURL e72e9ae32e0ec0880d57521a4f2900ed
+  userProfileURL 7f4ee54c69e4838843b3494326342c45
+import  -/  Flickr.Utils 68facf93de1ef1e4c93b470398fe5414
+  exports: 7ebed314ffe0fcb0fea5a3de318e595b
+  child 8ccf2865af73acbf8d20aef576554d9a
+  children 32b0abd5039eb2c78e3f88f6d5997003
+  ifNamed e6c698d338917636d6feeda41915e355
+  intContent 8738c452cf8634c7a3a55ca867a26f23
+  mbDef ffae685412de6199b88e342739e85026
+  mbOpt fbeadfdf9f7872a510ea6b9bd0bb273a
+  nsName 13a53574b6a1b9c1497f6aa27508e98b
+  opt 4e3ecddf8e04f30ca97c92ecb3805235
+  opt1 1e7f67f5f3584b992bbbb0c23896cf55
+  optB 3578d81f933854b852dbf2041684339b
+  pAttr 6e01f0483c8f6392578f85f66019745f
+  pLeaf 744e42533c3ef5b746636224cfb02753
+  pMany f7337246d283e4ff27f21fd70830ff92
+  pNode 6ca435ffbbbd2c996cefd9c978ff7753
+  pNodes 075d34eaa8a5578e199f794c4caf5afe
+  piped 540dd9bde5eb8693857bf1bbeedd29b1
+  readMb 85c1fe5d75803189de365d2274791547
+  showBool 3b96ac61efe940e49f0d6aaed8731c13
+  without 4391147ca20598a47fbeed8de0f2ab4f
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

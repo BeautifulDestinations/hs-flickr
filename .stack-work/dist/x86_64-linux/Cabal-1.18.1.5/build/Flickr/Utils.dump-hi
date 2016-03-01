@@ -1,0 +1,418 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:04.104286 UTC
+
+interface flickr-0.3.3:Flickr.Utils 7084
+  interface hash: 56912ece0751193776bdf8a4ec9d2164
+  ABI hash: 68facf93de1ef1e4c93b470398fe5414
+  export-list hash: 7ebed314ffe0fcb0fea5a3de318e595b
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 33e5b289809cf83d673df26976face9f
+  used TH splices: False
+  where
+exports:
+  Data.Maybe.fromMaybe
+  Flickr.Utils.child
+  Flickr.Utils.children
+  Flickr.Utils.ifNamed
+  Flickr.Utils.intContent
+  Flickr.Utils.mbDef
+  Flickr.Utils.mbOpt
+  Flickr.Utils.nsName
+  Flickr.Utils.opt
+  Flickr.Utils.opt1
+  Flickr.Utils.optB
+  Flickr.Utils.pAttr
+  Flickr.Utils.pLeaf
+  Flickr.Utils.pMany
+  Flickr.Utils.pNode
+  Flickr.Utils.pNodes
+  Flickr.Utils.piped
+  Flickr.Utils.readMb
+  Flickr.Utils.showBool
+  Flickr.Utils.without
+module dependencies:
+package dependencies: array-0.5.0.0 base* bytestring-0.10.4.0
+                      deepseq-1.3.0.2 ghc-prim integer-gmp text-1.2.0.6 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+family instance modules: base:Data.Either base:Data.Monoid
+                         base:Data.Type.Equality base:GHC.Exts base:GHC.Generics
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Control.Monad 483e787e07c2e49f1fb1c1b88665cb92
+import  -/  base:Data.List 8b77870d02d66076337587b759b7ee19
+import  -/  base:Data.Maybe 5034d40e23c3a7110309f188001df4ca
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:GHC.Enum 21572a7ecadc01c858f3321ea577e161
+import  -/  base:GHC.List 4cff382327e59a5787355ca0a4174450
+import  -/  base:GHC.Read 9c0686143adc10c3dc58e3c9eb52e404
+import  -/  base:GHC.Show cf1a7ff9edb0f41528085aad04d33753
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  base:Text.Read 6fe10a0a6d0a38c215de3b09e72ca556
+import  -/  ghc-prim:GHC.Classes 3e6cbe1e7e80480408cfa8d5450726a0
+import  -/  xml-1.3.14:Text.XML.Light 9d59617891bd0fbdb6d3ffcf65939020
+import  -/  xml-1.3.14:Text.XML.Light.Proc 277b74c044fa89f0db17455b56117130
+import  -/  xml-1.3.14:Text.XML.Light.Types 4483de4cddeaa14654667ed2520d029e
+100aadce99060fe6169815445ec827e4
+  $wifNamed :: GHC.Base.String
+               -> GHC.Base.String
+               -> Data.Maybe.Maybe GHC.Base.String
+               -> Data.Maybe.Maybe GHC.Base.String
+               -> Data.Maybe.Maybe a
+               -> Data.Maybe.Maybe a
+    {- Arity: 5, HasNoCafRefs,
+       Strictness: <S,1*U><S,1*U><L,1*U><L,1*U><L,1*U>,
+       Unfolding: (\ @ a
+                     w :: GHC.Base.String
+                     ww :: GHC.Base.String
+                     ww1 :: Data.Maybe.Maybe GHC.Base.String
+                     ww2 :: Data.Maybe.Maybe GHC.Base.String
+                     w1 :: Data.Maybe.Maybe a ->
+                   case GHC.Classes.$fOrd[]_$s$ccompare ww w of wild {
+                     DEFAULT -> Data.Maybe.Nothing @ a
+                     GHC.Types.EQ
+                     -> case ww1 of wild1 {
+                          Data.Maybe.Nothing
+                          -> case ww2 of wild3 {
+                               Data.Maybe.Nothing -> w1
+                               Data.Maybe.Just a2 -> Data.Maybe.Nothing @ a }
+                          Data.Maybe.Just ipv -> Data.Maybe.Nothing @ a } }) -}
+5137cce604fa0915bfccbdee902c9691
+  $wpAttr :: GHC.Base.String
+             -> [Text.XML.Light.Types.Attr]
+             -> Data.Maybe.Maybe GHC.Base.String
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ w :: GHC.Base.String
+                     ww :: [Text.XML.Light.Types.Attr] ->
+                   GHC.List.lookup
+                     @ Text.XML.Light.Types.QName
+                     @ GHC.Base.String
+                     Text.XML.Light.Types.$fEqQName
+                     (Text.XML.Light.Types.QName
+                        w
+                        (Data.Maybe.Nothing @ GHC.Base.String)
+                        (Data.Maybe.Nothing @ GHC.Base.String))
+                     (Flickr.Utils.pAttr_go ww)) -}
+5215b29819d4346cd828081f5d790486
+  $wshowBool :: GHC.Types.Bool
+                -> (# GHC.Types.Char, [GHC.Types.Char] #)
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+       Unfolding: (\ w :: GHC.Types.Bool ->
+                   case w of wild {
+                     GHC.Types.False
+                     -> GHC.Show.$wshowSignedInt 0 0 (GHC.Types.[] @ GHC.Types.Char)
+                     GHC.Types.True
+                     -> GHC.Show.$wshowSignedInt
+                          0
+                          1
+                          (GHC.Types.[] @ GHC.Types.Char) }) -}
+8ccf2865af73acbf8d20aef576554d9a
+  child :: Text.XML.Light.Types.Element
+           -> Text.XML.Light.Types.Element
+    {- Arity: 1, Strictness: <S(LLSL),U(1*U(1*U,1*U,1*U),1*U,U,1*U)>,
+       Unfolding: InlineRule (1, True, False)
+                  (\ e :: Text.XML.Light.Types.Element ->
+                   case Text.XML.Light.Proc.onlyElems_go
+                          (Text.XML.Light.Types.elContent e) of wild {
+                     [] -> Flickr.Utils.child1 e : x ds -> x }) -}
+d3da839bde075d616f95e3befda6f2a4
+  child1 :: Text.XML.Light.Types.Element
+            -> Text.XML.Light.Types.Element
+    {- Arity: 1, Strictness: <B,1*U(1*U(1*U,1*U,1*U),1*U,1*U,1*U)>b,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Text.XML.Light.Types.Element ->
+                   case w of ww { Text.XML.Light.Types.Element ww1 ww2 ww3 ww4 ->
+                   case ww1 of ww5 { Text.XML.Light.Types.QName ww6 ww7 ww8 ->
+                   Flickr.Utils.child2 ww6 ww7 ww8 ww2 ww3 ww4 } }) -}
+a8a0169091f3d90da726ba2768114bd5
+  child2 :: GHC.Base.String
+            -> Data.Maybe.Maybe GHC.Base.String
+            -> Data.Maybe.Maybe GHC.Base.String
+            -> [Text.XML.Light.Types.Attr]
+            -> [Text.XML.Light.Types.Content]
+            -> Data.Maybe.Maybe Text.XML.Light.Types.Line
+            -> Text.XML.Light.Types.Element
+    {- Arity: 6, Strictness: <L,U><L,U><L,U><L,U><L,U><L,U>b -}
+32b0abd5039eb2c78e3f88f6d5997003
+  children :: Text.XML.Light.Types.Element
+              -> [Text.XML.Light.Types.Element]
+    {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+       Unfolding: InlineRule (1, True, False)
+                  (\ e :: Text.XML.Light.Types.Element ->
+                   Text.XML.Light.Proc.onlyElems_go
+                     (Text.XML.Light.Types.elContent e)) -}
+e6c698d338917636d6feeda41915e355
+  ifNamed :: GHC.Base.String
+             -> Text.XML.Light.Types.Element
+             -> Data.Maybe.Maybe a
+             -> Data.Maybe.Maybe a
+    {- Arity: 3, HasNoCafRefs,
+       Strictness: <S,1*U><S(S(SLL)LLL),1*U(1*U(1*U,1*U,1*U),A,A,A)><L,1*U>,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (3, True, False)
+                  (\ @ a
+                     w :: GHC.Base.String
+                     w1 :: Text.XML.Light.Types.Element
+                     w2 :: Data.Maybe.Maybe a ->
+                   case w1 of ww { Text.XML.Light.Types.Element ww1 ww2 ww3 ww4 ->
+                   case ww1 of ww5 { Text.XML.Light.Types.QName ww6 ww7 ww8 ->
+                   Flickr.Utils.$wifNamed @ a w ww6 ww7 ww8 w2 } }) -}
+8738c452cf8634c7a3a55ca867a26f23
+  intContent :: Text.XML.Light.Types.Element
+                -> Data.Maybe.Maybe GHC.Types.Int
+    {- Arity: 1, Strictness: <L,1*U(A,A,1*U,A)>,
+       Unfolding: (\ e :: Text.XML.Light.Types.Element ->
+                   case Text.ParserCombinators.ReadP.run
+                          @ GHC.Types.Int
+                          Flickr.Utils.intContent1
+                          (case e of ww { Text.XML.Light.Types.Element ww1 ww2 ww3 ww4 ->
+                           Text.XML.Light.Proc.strContent_go1
+                             (Text.XML.Light.Proc.strContent_go ww3) }) of wild {
+                     [] -> Data.Maybe.Nothing @ GHC.Types.Int
+                     : ds ds1
+                     -> case ds of wild1 { (,) v ds2 ->
+                        Data.Maybe.Just @ GHC.Types.Int v } }) -}
+f3f525493deb9aaef0d943a9eb766505
+  intContent1 :: Text.ParserCombinators.ReadP.P GHC.Types.Int
+    {- Unfolding: (GHC.Read.$fReadInt4
+                     GHC.Read.$fReadInt_$sconvertInt
+                     Text.ParserCombinators.ReadPrec.minPrec
+                     @ GHC.Types.Int
+                     (Text.ParserCombinators.ReadP.$fMonadP_$creturn
+                        @ GHC.Types.Int)) -}
+ffae685412de6199b88e342739e85026
+  mbDef :: a -> Data.Maybe.Maybe a -> Data.Maybe.Maybe a
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ @ a x :: a ds :: Data.Maybe.Maybe a ->
+                   case ds of wild {
+                     Data.Maybe.Nothing -> Data.Maybe.Just @ a x
+                     Data.Maybe.Just ipv -> wild }) -}
+fbeadfdf9f7872a510ea6b9bd0bb273a
+  mbOpt :: GHC.Base.String
+           -> (a -> GHC.Base.String)
+           -> Data.Maybe.Maybe a
+           -> Data.Maybe.Maybe (GHC.Base.String, GHC.Base.String)
+    {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,1*C1(U)><S,1*U>,
+       Unfolding: (\ @ a
+                     _tg :: GHC.Base.String
+                     ds :: a -> GHC.Base.String
+                     ds1 :: Data.Maybe.Maybe a ->
+                   case ds1 of wild {
+                     Data.Maybe.Nothing
+                     -> Data.Maybe.Nothing @ (GHC.Base.String, GHC.Base.String)
+                     Data.Maybe.Just x
+                     -> Data.Maybe.Just
+                          @ (GHC.Base.String, GHC.Base.String)
+                          (_tg, ds x) }) -}
+13a53574b6a1b9c1497f6aa27508e98b
+  nsName :: GHC.Base.String -> Text.XML.Light.Types.QName
+    {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+       Unfolding: InlineRule (1, True, False)
+                  (\ x :: GHC.Base.String ->
+                   Text.XML.Light.Types.QName
+                     x
+                     (Data.Maybe.Nothing @ GHC.Base.String)
+                     (Data.Maybe.Nothing @ GHC.Base.String)) -}
+4e3ecddf8e04f30ca97c92ecb3805235
+  opt :: GHC.Base.String
+         -> GHC.Base.String
+         -> Data.Maybe.Maybe (GHC.Base.String, GHC.Base.String)
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m2,
+       Unfolding: InlineRule (2, True, False)
+                  (\ a :: GHC.Base.String b :: GHC.Base.String ->
+                   Data.Maybe.Just @ (GHC.Base.String, GHC.Base.String) (a, b)) -}
+1e7f67f5f3584b992bbbb0c23896cf55
+  opt1 :: GHC.Base.String
+          -> [GHC.Base.String]
+          -> Data.Maybe.Maybe (GHC.Base.String, GHC.Base.String)
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ ds :: GHC.Base.String ds1 :: [GHC.Base.String] ->
+                   case ds1 of wild {
+                     [] -> Data.Maybe.Nothing @ (GHC.Base.String, GHC.Base.String)
+                     : ipv ipv1
+                     -> Data.Maybe.Just
+                          @ (GHC.Base.String, GHC.Base.String)
+                          (ds,
+                           Flickr.Utils.opt1_go
+                             (GHC.Types.:
+                                @ [GHC.Types.Char]
+                                ipv
+                                (Data.List.prependToAll
+                                   @ [GHC.Types.Char]
+                                   Flickr.Utils.opt2
+                                   ipv1))) }) -}
+b100e9e25f0c7ad64511623fc485c44d
+  opt1_go :: [[GHC.Types.Char]] -> [GHC.Types.Char]
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+a6fd38cb342bdab746ccf8972003d959
+  opt2 :: [GHC.Types.Char]
+    {- HasNoCafRefs, Strictness: m2,
+       Unfolding: (GHC.Types.:
+                     @ GHC.Types.Char
+                     Flickr.Utils.opt3
+                     (GHC.Types.[] @ GHC.Types.Char)) -}
+5f74c94294c69efebcc9c6ea44a776fb
+  opt3 :: GHC.Types.Char
+    {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# '|') -}
+3578d81f933854b852dbf2041684339b
+  optB :: GHC.Base.String
+          -> GHC.Types.Bool
+          -> Data.Maybe.Maybe (GHC.Base.String, GHC.Base.String)
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ ds :: GHC.Base.String ds1 :: GHC.Types.Bool ->
+                   case ds1 of wild {
+                     GHC.Types.False
+                     -> Data.Maybe.Nothing @ (GHC.Base.String, GHC.Base.String)
+                     GHC.Types.True
+                     -> Data.Maybe.Just
+                          @ (GHC.Base.String, GHC.Base.String)
+                          (ds, GHC.Types.[] @ GHC.Types.Char) }) -}
+6e01f0483c8f6392578f85f66019745f
+  pAttr :: GHC.Base.String
+           -> Text.XML.Light.Types.Element
+           -> Data.Maybe.Maybe GHC.Base.String
+    {- Arity: 2, HasNoCafRefs,
+       Strictness: <L,U><S(LSLL),1*U(A,1*U,A,A)>, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: GHC.Base.String w1 :: Text.XML.Light.Types.Element ->
+                   case w1 of ww { Text.XML.Light.Types.Element ww1 ww2 ww3 ww4 ->
+                   Flickr.Utils.$wpAttr w ww2 }) -}
+27a1c25a69350af0f5bdfafcc882f347
+  pAttr_go :: [Text.XML.Light.Types.Attr]
+              -> [(Text.XML.Light.Types.QName, GHC.Base.String)]
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+744e42533c3ef5b746636224cfb02753
+  pLeaf :: GHC.Base.String
+           -> [Text.XML.Light.Types.Element]
+           -> Data.Maybe.Maybe GHC.Base.String
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ x :: GHC.Base.String
+                     es :: [Text.XML.Light.Types.Element] ->
+                   case Flickr.Utils.pNodes x es of wild {
+                     [] -> Data.Maybe.Nothing @ GHC.Base.String
+                     : a1 ds1
+                     -> Data.Maybe.Just
+                          @ GHC.Base.String
+                          (Text.XML.Light.Proc.strContent a1) }) -}
+f7337246d283e4ff27f21fd70830ff92
+  pMany :: GHC.Base.String
+           -> (Text.XML.Light.Types.Element -> Data.Maybe.Maybe a)
+           -> [Text.XML.Light.Types.Element]
+           -> [a]
+    {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,C(U)><S,1*U>,
+       Unfolding: (\ @ a
+                     p :: GHC.Base.String
+                     f :: Text.XML.Light.Types.Element -> Data.Maybe.Maybe a
+                     es :: [Text.XML.Light.Types.Element] ->
+                   Data.Maybe.mapMaybe
+                     @ Text.XML.Light.Types.Element
+                     @ a
+                     f
+                     (Flickr.Utils.pNodes p es)) -}
+6ca435ffbbbd2c996cefd9c978ff7753
+  pNode :: GHC.Base.String
+           -> [Text.XML.Light.Types.Element]
+           -> Data.Maybe.Maybe Text.XML.Light.Types.Element
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ x :: GHC.Base.String
+                     es :: [Text.XML.Light.Types.Element] ->
+                   case Flickr.Utils.pNodes x es of wild {
+                     [] -> Data.Maybe.Nothing @ Text.XML.Light.Types.Element
+                     : a1 ds1 -> Data.Maybe.Just @ Text.XML.Light.Types.Element a1 }) -}
+075d34eaa8a5578e199f794c4caf5afe
+  pNodes :: GHC.Base.String
+            -> [Text.XML.Light.Types.Element]
+            -> [Text.XML.Light.Types.Element]
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ x :: GHC.Base.String
+                     es :: [Text.XML.Light.Types.Element] ->
+                   GHC.List.filter
+                     @ Text.XML.Light.Types.Element
+                     (\ x1 :: Text.XML.Light.Types.Element ->
+                      case x1 of wild { Text.XML.Light.Types.Element ds1 ds2 ds3 ds4 ->
+                      case ds1 of ww4 { Text.XML.Light.Types.QName ww5 ww6 ww7 ->
+                      case GHC.Classes.$fOrd[]_$s$ccompare x ww5 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        GHC.Types.EQ
+                        -> case ww6 of wild2 {
+                             Data.Maybe.Nothing
+                             -> case ww7 of wild4 {
+                                  Data.Maybe.Nothing -> GHC.Types.True
+                                  Data.Maybe.Just ipv -> GHC.Types.False }
+                             Data.Maybe.Just ipv -> GHC.Types.False } } } })
+                     es) -}
+540dd9bde5eb8693857bf1bbeedd29b1
+  piped :: [GHC.Base.String] -> GHC.Base.String
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+       Unfolding: (\ xs :: [GHC.Base.String] ->
+                   case xs of wild {
+                     [] -> GHC.Types.[] @ GHC.Types.Char
+                     : x xs1
+                     -> Flickr.Utils.piped_go
+                          (GHC.Types.:
+                             @ [GHC.Types.Char]
+                             x
+                             (Data.List.prependToAll
+                                @ [GHC.Types.Char]
+                                Flickr.Utils.opt2
+                                xs1)) }) -}
+4c3b98bb99fb0ab7dcdc2d6436bbe00f
+  piped_go :: [[GHC.Types.Char]] -> [GHC.Types.Char]
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+85c1fe5d75803189de365d2274791547
+  readMb :: GHC.Read.Read a -> GHC.Base.String -> Data.Maybe.Maybe a
+    {- Arity: 2, HasNoCafRefs,
+       Strictness: <S(C(C(S))LLL),1*U(1*C1(C1(U)),A,A,A)><L,U>,
+       Unfolding: InlineRule (2, True, False)
+                  (\ @ a $dRead :: GHC.Read.Read a x :: GHC.Base.String ->
+                   case GHC.Read.readsPrec
+                          @ a
+                          $dRead
+                          Text.ParserCombinators.ReadPrec.minPrec
+                          x of wild {
+                     [] -> Data.Maybe.Nothing @ a
+                     : ds ds1
+                     -> case ds of wild1 { (,) v ds2 -> Data.Maybe.Just @ a v } }) -}
+3b96ac61efe940e49f0d6aaed8731c13
+  showBool :: GHC.Types.Bool -> GHC.Base.String
+    {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m2,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: GHC.Types.Bool ->
+                   case Flickr.Utils.$wshowBool w of ww { (#,#) ww1 ww2 ->
+                   GHC.Types.: @ GHC.Types.Char ww1 ww2 }) -}
+4391147ca20598a47fbeed8de0f2ab4f
+  without :: [GHC.Base.String]
+             -> [Text.XML.Light.Types.Attr]
+             -> [Text.XML.Light.Types.Attr]
+    {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
+       Unfolding: (\ xs :: [GHC.Base.String]
+                     as :: [Text.XML.Light.Types.Attr] ->
+                   let {
+                     qxs :: [Text.XML.Light.Types.QName]
+                     = GHC.Base.map
+                         @ [GHC.Types.Char]
+                         @ Text.XML.Light.Types.QName
+                         Flickr.Utils.nsName
+                         xs
+                   } in
+                   GHC.List.filter
+                     @ Text.XML.Light.Types.Attr
+                     (\ a :: Text.XML.Light.Types.Attr ->
+                      case GHC.List.elem
+                             @ Text.XML.Light.Types.QName
+                             Text.XML.Light.Types.$fEqQName
+                             (Text.XML.Light.Types.attrKey a)
+                             qxs of wild {
+                        GHC.Types.False -> GHC.Types.True
+                        GHC.Types.True -> GHC.Types.False })
+                     as) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe-inferred
+require own pkg trusted: False
+

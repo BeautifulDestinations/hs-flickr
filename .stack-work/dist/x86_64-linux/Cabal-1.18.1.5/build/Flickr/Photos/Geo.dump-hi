@@ -1,0 +1,801 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:09.308888 UTC
+
+interface flickr-0.3.3:Flickr.Photos.Geo 7084
+  interface hash: 310d16737dbe856f307708245ce209b0
+  ABI hash: f9c92c5a281f546e9bcff15b9fda8c13
+  export-list hash: 78aa5c430b18821e7b1651d16d71ffeb
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 31ab5db797e3798aa9ee609104977efd
+  used TH splices: False
+  where
+exports:
+  Flickr.Photos.Geo.batchCorrectLocation
+  Flickr.Photos.Geo.correctLocation
+  Flickr.Photos.Geo.getLocation
+  Flickr.Photos.Geo.getPerms
+  Flickr.Photos.Geo.photosForLocation
+  Flickr.Photos.Geo.removeLocation
+  Flickr.Photos.Geo.setContext
+  Flickr.Photos.Geo.setLocation
+  Flickr.Photos.Geo.setPerms
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Monad
+                     Flickr.Types Flickr.Types.Import Flickr.Utils Util.Fetch Util.Keys
+                     Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Data.Either d1c890129a7c6a9ec02a642c6c2f4ed3
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:GHC.Show cf1a7ff9edb0f41528085aad04d33753
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Monad 674fd2fea86aa2605cc91229a555ec49
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  eiArg 051cc948abbcd461f14365b73ed185aa
+  flickCall_ a4b037ad88ec2630c5c3c4b581c42182
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  lsArg c3c9ceb6cf2fc5ee33bd67fb297f08ca
+  mbArg fa8e1aa0b07207d002e5dac562d3d3bf
+  postMethod b894fdcbd5b83d21dfa037dd8bba6dcf
+  withReadPerm 6aa3446da9d22d6d7f84a29bfdacb8f8
+  withWritePerm 73ff2a63e3ab148ae336fe33c2f18317
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  ContextID 7b8f3b8107011793386a8f67a29ebe3a
+  GeoLocation 4700cf4cc29149d83f21d2d0920c036f
+  Permissions a4059c629f69c00c0f9f59f337a7865a
+  Photo 2deca11afc0a961b40b35bcb8cfdb204
+  PhotoContext b13240513008c5723d6a1a8824274a9d
+  PhotoID afad6d42cded8baa9088f416d88f77bf
+  PhotoInfo 80f14b9fec26e6389cc8843e842ac6d9
+  PlaceID 33fbdda9f0861e717e1d3521228b5a6d
+  WhereOnEarthID bc4b53942522074527ee64fdb076b609
+  permIsFamily 52849efba9643dd0a6f0cc073d917aba
+  permIsFriend c7efff80d8215a30c5f90b403c3f9983
+  permIsPublic bd7646914c2052191473085312967bfd
+import  -/  Flickr.Types.Import da2c9786faefb0407bdc4730d0d4b181
+  exports: 85b5f3b03fa235dd576ef02c774e9eab
+  toGeoLocation bd89630ecbb69f46461520f6a6eda1e5
+  toPermissions af698f6c24cadb18e33753c40f47a0a2
+  toPhotoList 35e814ac6bfec3a1de4ef5e719304676
+import  -/  Flickr.Utils 68facf93de1ef1e4c93b470398fe5414
+  exports: 7ebed314ffe0fcb0fea5a3de318e595b
+  showBool 3b96ac61efe940e49f0d6aaed8731c13
+import  -/  ghc-prim:GHC.Classes 3e6cbe1e7e80480408cfa8d5450726a0
+051daaec2902a7cca0c1a84df5e0af58
+  $wbatchCorrectLocation :: Flickr.Types.Latitude
+                            -> Flickr.Types.Longitude
+                            -> Data.Maybe.Maybe Flickr.Types.Accuracy
+                            -> Data.Either.Either
+                                   Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID
+                            -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 4, Strictness: <L,U><L,U><L,1*U><L,1*U>,
+       Unfolding: (\ ww :: Flickr.Types.Latitude
+                     ww1 :: Flickr.Types.Longitude
+                     ww2 :: Data.Maybe.Maybe Flickr.Types.Accuracy
+                     w :: Data.Either.Either
+                              Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.batchCorrectLocation6
+                          (let {
+                             xs :: [(GHC.Base.String, GHC.Base.String)]
+                             = case ww2 of wild {
+                                 Data.Maybe.Nothing
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Photos.Geo.batchCorrectLocation5, ww)
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Photos.Geo.batchCorrectLocation4, ww1)
+                                         (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)))
+                                 Data.Maybe.Just a1
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Photos.Geo.batchCorrectLocation3,
+                                       GHC.Show.$fShowInt_$cshow a1)
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Photos.Geo.batchCorrectLocation5, ww)
+                                         (GHC.Types.:
+                                            @ (GHC.Base.String, GHC.Base.String)
+                                            (Flickr.Photos.Geo.batchCorrectLocation4, ww1)
+                                            (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)))) }
+                           } in
+                           case w of wild {
+                             Data.Either.Left x
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation2, x)
+                                  xs
+                             Data.Either.Right x
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation1, x)
+                                  xs }) of ww3 { (##) ww4 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww4
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+fa38dae102c5898682d732af46775448
+  $wcorrectLocation :: Flickr.Types.PhotoID
+                       -> Data.Either.Either
+                              Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID
+                       -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 2, Strictness: <L,U><L,1*U>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID
+                     w1 :: Data.Either.Either
+                               Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.correctLocation2
+                          (case w1 of wild {
+                             Data.Either.Left x
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation2, x)
+                                  (GHC.Types.:
+                                     @ (GHC.Base.String, GHC.Base.String)
+                                     (Flickr.Photos.Geo.correctLocation1, w)
+                                     (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)))
+                             Data.Either.Right x
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation1, x)
+                                  (GHC.Types.:
+                                     @ (GHC.Base.String, GHC.Base.String)
+                                     (Flickr.Photos.Geo.correctLocation1, w)
+                                     (GHC.Types.[]
+                                        @ (GHC.Base.String,
+                                           GHC.Base.String))) }) of ww { (##) ww1 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+93856751428b6ae47423dff17915b97e
+  $wgetLocation :: Flickr.Types.PhotoID
+                   -> (# Flickr.Monad.FMEnv
+                         -> GHC.Types.IO Flickr.Types.GeoLocation #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Photos.Geo.getLocation1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photos.Geo.correctLocation1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.GeoLocation
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltGeoLocation
+                                   ww8
+                                   ww9
+                                   ww10
+                                   ww4 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.GeoLocation
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <Flickr.Types.GeoLocation>_R)) #) }) -}
+35f27195d98cf2e37a33deb92f71b1fc
+  $wgetPerms :: Flickr.Types.PhotoID
+                -> (# Flickr.Monad.FMEnv
+                      -> GHC.Types.IO Flickr.Types.Permissions #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Photos.Geo.getPerms1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photos.Geo.correctLocation1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.Permissions
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case Flickr.Types.Import.$weltPermissions ww4 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.Permissions
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww7 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww7
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww9 ww10)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <Flickr.Types.Permissions>_R)) #) }) -}
+83a46cde994442886dd0d1c504244c6c
+  $wphotosForLocation :: Flickr.Types.Latitude
+                         -> Flickr.Types.Longitude
+                         -> Data.Maybe.Maybe Flickr.Types.Accuracy
+                         -> [Flickr.Types.PhotoInfo]
+                         -> (# Flickr.Monad.FMEnv
+                               -> GHC.Types.IO
+                                      (Flickr.Types.PhotoContext, [Flickr.Types.Photo]) #)
+    {- Arity: 4, Strictness: <L,U><L,U><L,1*U><L,1*U>,
+       Unfolding: (\ ww :: Flickr.Types.Latitude
+                     ww1 :: Flickr.Types.Longitude
+                     ww2 :: Data.Maybe.Maybe Flickr.Types.Accuracy
+                     w :: [Flickr.Types.PhotoInfo] ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Photos.Geo.photosForLocation2
+                          (let {
+                             xs :: [(GHC.Base.String, GHC.Base.String)]
+                             = case GHC.Base.map
+                                      @ Flickr.Types.PhotoInfo
+                                      @ [GHC.Types.Char]
+                                      Flickr.Types.$fShowPhotoInfo_$cshow
+                                      w of wild {
+                                 []
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Photos.Geo.batchCorrectLocation5, ww)
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Photos.Geo.batchCorrectLocation4, ww1)
+                                         (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)))
+                                 : ipv ipv1
+                                 -> GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Photos.Geo.photosForLocation1,
+                                       Data.List.intercalate_$spoly_go
+                                         @ GHC.Types.Char
+                                         ipv
+                                         (Data.List.prependToAll
+                                            @ [GHC.Types.Char]
+                                            Flickr.Monad.lsArg1
+                                            ipv1))
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Photos.Geo.batchCorrectLocation5, ww)
+                                         (GHC.Types.:
+                                            @ (GHC.Base.String, GHC.Base.String)
+                                            (Flickr.Photos.Geo.batchCorrectLocation4, ww1)
+                                            (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String)))) }
+                           } in
+                           case ww2 of wild {
+                             Data.Maybe.Nothing -> xs
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation3,
+                                   GHC.Show.$fShowInt_$cshow a1)
+                                  xs }) of ww3 { (##) ww4 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         eta :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww4
+                               (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                                Flickr.Monad.FMEnv
+                                  ds1
+                                  GHC.Types.True
+                                  ds3
+                                  ds4
+                                  ds5
+                                  ds6
+                                  ds7
+                                  Flickr.Monad.withReadPerm1
+                                  ds9
+                                  ds10
+                                  ds11 }))
+                              `cast`
+                            (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              eta of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww5 { Text.XML.Light.Types.Element ww6 ww7 ww8 ww9 ->
+                            case ww6 of ww10 { Text.XML.Light.Types.QName ww11 ww12 ww13 ->
+                            case Flickr.Types.Import.$weltPhotoList
+                                   ww11
+                                   ww12
+                                   ww13
+                                   ww7
+                                   ww8 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww14 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww14
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww15 { (#,#) ww16 ww17 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww16 ww17)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <(Flickr.Types.PhotoContext,
+                                       [Flickr.Types.Photo])>_R)) #) }) -}
+bf04559ea20f9c40bec1ffe8a39d3b14
+  $wsetContext :: Flickr.Types.PhotoID
+                  -> Flickr.Types.ContextID
+                  -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 2, Strictness: <L,U><L,U>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID
+                     w1 :: Flickr.Types.ContextID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.setContext2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photos.Geo.correctLocation1, w)
+                             (GHC.Types.:
+                                @ (GHC.Base.String, GHC.Base.String)
+                                (Flickr.Photos.Geo.setContext1, GHC.Show.$fShowInteger_$cshow w1)
+                                (GHC.Types.[]
+                                   @ (GHC.Base.String, GHC.Base.String)))) of ww { (##) ww1 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+4870e0ace6ffbf66d11829c1ff243942
+  $wsetLocation :: Flickr.Types.PhotoID
+                   -> Flickr.Types.Latitude
+                   -> Flickr.Types.Longitude
+                   -> Data.Maybe.Maybe Flickr.Types.Accuracy
+                   -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 4, Strictness: <L,U><L,U><L,U><L,1*U>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID
+                     ww :: Flickr.Types.Latitude
+                     ww1 :: Flickr.Types.Longitude
+                     ww2 :: Data.Maybe.Maybe Flickr.Types.Accuracy ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.setLocation3
+                          (case ww2 of wild {
+                             Data.Maybe.Nothing
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.correctLocation1, w)
+                                  (GHC.Types.:
+                                     @ (GHC.Base.String, GHC.Base.String)
+                                     (Flickr.Photos.Geo.setLocation2, ww)
+                                     (GHC.Types.:
+                                        @ (GHC.Base.String, GHC.Base.String)
+                                        (Flickr.Photos.Geo.setLocation1, ww1)
+                                        (GHC.Types.[] @ (GHC.Base.String, GHC.Base.String))))
+                             Data.Maybe.Just a1
+                             -> GHC.Types.:
+                                  @ (GHC.Base.String, GHC.Base.String)
+                                  (Flickr.Photos.Geo.batchCorrectLocation3,
+                                   GHC.Show.$fShowInt_$cshow a1)
+                                  (GHC.Types.:
+                                     @ (GHC.Base.String, GHC.Base.String)
+                                     (Flickr.Photos.Geo.correctLocation1, w)
+                                     (GHC.Types.:
+                                        @ (GHC.Base.String, GHC.Base.String)
+                                        (Flickr.Photos.Geo.setLocation2, ww)
+                                        (GHC.Types.:
+                                           @ (GHC.Base.String, GHC.Base.String)
+                                           (Flickr.Photos.Geo.setLocation1, ww1)
+                                           (GHC.Types.[]
+                                              @ (GHC.Base.String,
+                                                 GHC.Base.String))))) }) of ww3 { (##) ww4 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww4
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+3d0a50d93fbc95de89de11e62c6539c6
+  $wsetPerms :: Flickr.Types.PhotoID
+                -> Flickr.Types.Permissions
+                -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 2, Strictness: <L,U><L,U(A,1*U,U,U,A,A)>,
+       Unfolding: (\ w :: Flickr.Types.PhotoID
+                     w1 :: Flickr.Types.Permissions ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.setPerms5
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photos.Geo.correctLocation1, w)
+                             (GHC.Types.:
+                                @ (GHC.Base.String, GHC.Base.String)
+                                (Flickr.Photos.Geo.setPerms4,
+                                 case w1 of wild { Flickr.Types.Permissions ds1 ds2 ds3 ds4 ds5 ds6 ->
+                                 case Flickr.Utils.$wshowBool ds2 of ww { (#,#) ww1 ww2 ->
+                                 GHC.Types.: @ GHC.Types.Char ww1 ww2 } })
+                                (GHC.Types.:
+                                   @ (GHC.Base.String, GHC.Base.String)
+                                   (Flickr.Photos.Geo.setPerms3,
+                                    case w1 of wild { Flickr.Types.Permissions ds1 ds2 ds3 ds4 ds5 ds6 ->
+                                    case Flickr.Utils.$wshowBool ds3 of ww { (#,#) ww1 ww2 ->
+                                    GHC.Types.: @ GHC.Types.Char ww1 ww2 } })
+                                   (GHC.Types.:
+                                      @ (GHC.Base.String, GHC.Base.String)
+                                      (Flickr.Photos.Geo.setPerms2,
+                                       case w1 of wild { Flickr.Types.Permissions ds1 ds2 ds3 ds4 ds5 ds6 ->
+                                       case Flickr.Utils.$wshowBool ds4 of ww { (#,#) ww1 ww2 ->
+                                       GHC.Types.: @ GHC.Types.Char ww1 ww2 } })
+                                      (GHC.Types.:
+                                         @ (GHC.Base.String, GHC.Base.String)
+                                         (Flickr.Photos.Geo.setPerms1,
+                                          case w1 of wild { Flickr.Types.Permissions ds1 ds2 ds3 ds4 ds5 ds6 ->
+                                          case ds4 of wild1 {
+                                            GHC.Types.False -> Flickr.Utils.showBool ds3
+                                            GHC.Types.True
+                                            -> case GHC.Show.$wshowSignedInt
+                                                      0
+                                                      1
+                                                      (GHC.Types.[]
+                                                         @ GHC.Types.Char) of ww { (#,#) ww1 ww2 ->
+                                               GHC.Types.: @ GHC.Types.Char ww1 ww2 } } })
+                                         (GHC.Types.[]
+                                            @ (GHC.Base.String,
+                                               GHC.Base.String))))))) of ww { (##) ww1 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+c04b45e6937684fb4d9099e7ea735c63
+  batchCorrectLocation :: Flickr.Types.GeoLocation
+                          -> Data.Either.Either
+                                 Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID
+                          -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <S,1*U(U,U,1*U)><L,1*U>m,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.GeoLocation
+                     w1 :: Data.Either.Either
+                               Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID ->
+                   case w of ww { (,,) ww1 ww2 ww3 ->
+                   case Flickr.Photos.Geo.$wbatchCorrectLocation
+                          ww1
+                          ww2
+                          ww3
+                          w1 of ww4 { (##) ww5 ->
+                   Flickr.Monad.FM @ () ww5 } }) -}
+544f498fcc3e5848bc12a36c455145cf
+  batchCorrectLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "woe_id"#) -}
+ab5d1a874a4f60712e7d4b313f6ab8b5
+  batchCorrectLocation2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "place_id"#) -}
+c276b0bcc50e5ba2632dd2a3b0696e9c
+  batchCorrectLocation3 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "accuracy"#) -}
+d3222f97c13f8ba10246bb15615f312b
+  batchCorrectLocation4 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "longitude"#) -}
+d27076dbbd1d2913e573a25305395cc6
+  batchCorrectLocation5 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "latitude"#) -}
+0d6a8d7e72920ac6950d85925d7258bf
+  batchCorrectLocation6 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.batchCorrectLocation"#) -}
+4f478279d5124508435cbde4b395751f
+  correctLocation :: Flickr.Types.PhotoID
+                     -> Data.Either.Either
+                            Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID
+                     -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <L,U><L,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.PhotoID
+                     w1 :: Data.Either.Either
+                               Flickr.Types.PlaceID Flickr.Types.WhereOnEarthID ->
+                   case Flickr.Photos.Geo.$wcorrectLocation w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ () ww1 }) -}
+4ae2d0b29cd3925aa59c44d0a45113ab
+  correctLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "photo_id"#) -}
+6f6c98285b6efb56cb8c068ea2c411c2
+  correctLocation2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.correctLocation"#) -}
+76e77bdc29d7d12724f41d05b19fb9f0
+  getLocation :: Flickr.Types.PhotoID
+                 -> Flickr.Monad.FM Flickr.Types.GeoLocation
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Photos.Geo.$wgetLocation w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.GeoLocation ww1 }) -}
+c0264e2dd37613a807342513d22a19ae
+  getLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.getLocation"#) -}
+cb14954cc483aacd1abc7021972ccd6c
+  getPerms :: Flickr.Types.PhotoID
+              -> Flickr.Monad.FM Flickr.Types.Permissions
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Photos.Geo.$wgetPerms w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.Permissions ww1 }) -}
+f4f5774f039b499ba94cf84e4444a807
+  getPerms1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.getPerms"#) -}
+ea99b28978c858271b291414dc8e8b76
+  photosForLocation :: Flickr.Types.GeoLocation
+                       -> [Flickr.Types.PhotoInfo]
+                       -> Flickr.Monad.FM
+                              (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+    {- Arity: 2, Strictness: <S,1*U(U,U,1*U)><L,1*U>m,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.GeoLocation w1 :: [Flickr.Types.PhotoInfo] ->
+                   case w of ww { (,,) ww1 ww2 ww3 ->
+                   case Flickr.Photos.Geo.$wphotosForLocation
+                          ww1
+                          ww2
+                          ww3
+                          w1 of ww4 { (##) ww5 ->
+                   Flickr.Monad.FM
+                     @ (Flickr.Types.PhotoContext, [Flickr.Types.Photo])
+                     ww5 } }) -}
+f005ed14fc24027b6c5bdd5ad996a81f
+  photosForLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "extras"#) -}
+55aaed77f073938850b099241df235da
+  photosForLocation2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photo.geo.photosForLocation"#) -}
+cb09517cafdda3a64a6cfa40f4dbb28b
+  removeLocation :: Flickr.Types.PhotoID -> Flickr.Monad.FM ()
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotoID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photos.Geo.removeLocation1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photos.Geo.correctLocation1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ ()
+                     (\ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 })) }) -}
+e68df98dd331187e6b18f54302315921
+  removeLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.removeLocation"#) -}
+e1fc317c0f527875345a71a8f3f4fdec
+  setContext :: Flickr.Types.PhotoID
+                -> Flickr.Types.ContextID
+                -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <L,U><L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.PhotoID w1 :: Flickr.Types.ContextID ->
+                   case Flickr.Photos.Geo.$wsetContext w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ () ww1 }) -}
+734cd964d9ac7d17aacdd0a616ad53e9
+  setContext1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "context"#) -}
+87c44781f3acdc31327671846f72a43e
+  setContext2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.setContext"#) -}
+6e01d06e2732a784b2f4ad43d9a5f69b
+  setLocation :: Flickr.Types.PhotoID
+                 -> Flickr.Types.GeoLocation
+                 -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <L,U><S,1*U(U,U,1*U)>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.PhotoID w1 :: Flickr.Types.GeoLocation ->
+                   case w1 of ww { (,,) ww1 ww2 ww3 ->
+                   case Flickr.Photos.Geo.$wsetLocation
+                          w
+                          ww1
+                          ww2
+                          ww3 of ww4 { (##) ww5 ->
+                   Flickr.Monad.FM @ () ww5 } }) -}
+d07ccfe4b693deb595e58ab05de282e5
+  setLocation1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "lon"#) -}
+19ff1001f5930c5abfae2363c1227f7a
+  setLocation2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "lat"#) -}
+00f555dfd9e9d3268ab8c57592d032fd
+  setLocation3 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.setLocation"#) -}
+cdff1786121e2e2f7cf2012a9d004498
+  setPerms :: Flickr.Types.PhotoID
+              -> Flickr.Types.Permissions
+              -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <L,U><L,U(A,1*U,U,U,A,A)>m,
+       Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.PhotoID w1 :: Flickr.Types.Permissions ->
+                   case Flickr.Photos.Geo.$wsetPerms w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ () ww1 }) -}
+92fb4540cc5a06c4eddcd160248a4e8f
+  setPerms1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "is_contact"#) -}
+d379479f1fc7dd5022730793d66b1e74
+  setPerms2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "is_family"#) -}
+8c702aab405824d4427df55659ad2b42
+  setPerms3 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "is_friend"#) -}
+5f05bb46a5f0f22ed41e58799cd48aca
+  setPerms4 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "is_public"#) -}
+849a19fe8f188531f4bbe7bd8890ea26
+  setPerms5 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photos.geo.setPerms"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

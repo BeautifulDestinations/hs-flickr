@@ -1,0 +1,304 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:09.906524 UTC
+
+interface flickr-0.3.3:Flickr.Photosets.Comments 7084
+  interface hash: f50d9d68e86798c794c56dc471cdcd20
+  ABI hash: 190b05dc5b975ee9eb41d6f1221c412f
+  export-list hash: 7b9b8e97670ae6b3865ab4e81c7a0605
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 57c972973cfacf4a5e0a86faaf6c69bc
+  used TH splices: False
+  where
+exports:
+  Flickr.Photosets.Comments.addComment
+  Flickr.Photosets.Comments.deleteComment
+  Flickr.Photosets.Comments.editComment
+  Flickr.Photosets.Comments.getList
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Monad
+                     Flickr.Types Flickr.Types.Import Flickr.Utils Util.Fetch Util.Keys
+                     Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Monad 674fd2fea86aa2605cc91229a555ec49
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  flickCall_ a4b037ad88ec2630c5c3c4b581c42182
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  postMethod b894fdcbd5b83d21dfa037dd8bba6dcf
+  withWritePerm 73ff2a63e3ab148ae336fe33c2f18317
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  Comment 494983341f44d73e6ff4b0810cd80eb0
+  CommentID e664f0f9f82650f48337e7eae3f3838b
+  PhotosetID 7a4044ff0e254d15a2d6c1d0386e50e6
+import  -/  Flickr.Types.Import da2c9786faefb0407bdc4730d0d4b181
+  exports: 85b5f3b03fa235dd576ef02c774e9eab
+  toCommentID 6f4619e0c25859a68bd5b6f2c76ee480
+  toCommentList cb0a08aba25b4481e036a293f066801b
+81d6d9a40a3b45e39df8b9f479ba30a6
+  $waddComment :: Flickr.Types.PhotosetID
+                  -> GHC.Base.String
+                  -> (# Flickr.Monad.FMEnv -> GHC.Types.IO Flickr.Types.CommentID #)
+    {- Arity: 2, Strictness: <L,U><L,U>,
+       Unfolding: (\ w :: Flickr.Types.PhotosetID w1 :: GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Photosets.Comments.addComment4
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photosets.Comments.addComment3, w)
+                             (GHC.Types.:
+                                @ (GHC.Base.String, GHC.Base.String)
+                                (Flickr.Photosets.Comments.addComment2, w1)
+                                (GHC.Types.[]
+                                   @ (GHC.Base.String, GHC.Base.String)))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         eta :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1
+                               (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                                Flickr.Monad.FMEnv
+                                  ds1
+                                  GHC.Types.True
+                                  GHC.Types.True
+                                  ds4
+                                  ds5
+                                  ds6
+                                  ds7
+                                  Flickr.Monad.withWritePerm1
+                                  ds9
+                                  ds10
+                                  ds11 }))
+                              `cast`
+                            (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              eta of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.CommentID
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case GHC.List.lookup
+                                   @ Text.XML.Light.Types.QName
+                                   @ GHC.Base.String
+                                   Text.XML.Light.Types.$fEqQName
+                                   Flickr.Photosets.Comments.addComment1
+                                   (Flickr.Utils.pAttr_go ww4) of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.CommentID
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww7 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww7
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww9 ww10)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <Flickr.Types.CommentID>_R)) #) }) -}
+f15c9db7f7ccb6a3bda401c9776c08b7
+  $weditComment :: Flickr.Types.CommentID
+                   -> GHC.Base.String
+                   -> (# Flickr.Monad.FMEnv -> GHC.Types.IO () #)
+    {- Arity: 2, Strictness: <L,U><L,U>,
+       Unfolding: (\ w :: Flickr.Types.CommentID w1 :: GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photosets.Comments.editComment1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photosets.Comments.deleteComment1, w)
+                             (GHC.Types.:
+                                @ (GHC.Base.String, GHC.Base.String)
+                                (Flickr.Photosets.Comments.addComment2, w1)
+                                (GHC.Types.[]
+                                   @ (GHC.Base.String, GHC.Base.String)))) of ww { (##) ww1 ->
+                   (# \ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 }) #) }) -}
+dc6872bfec5c64eb1d988977f4ae4543
+  $wgetList :: Flickr.Types.PhotosetID
+               -> (# Flickr.Monad.FMEnv -> GHC.Types.IO [Flickr.Types.Comment] #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: Flickr.Types.PhotosetID ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.Photosets.Comments.getList1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photosets.Comments.addComment3, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ [Flickr.Types.Comment]
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> (# ipv,
+                               case x of wild1 { Text.XML.Light.Types.Element ds2 ds3 ds4 ds5 ->
+                               Data.Maybe.mapMaybe
+                                 @ Text.XML.Light.Types.Element
+                                 @ Flickr.Types.Comment
+                                 Flickr.Types.Import.eltComment
+                                 (Flickr.Utils.pNodes
+                                    Flickr.Types.Import.eltComment5
+                                    (Text.XML.Light.Proc.onlyElems_go ds4)) } #) } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0]
+                                     <[Flickr.Types.Comment]>_R)) #) }) -}
+9f1d4136d6ab9f6cbaadf72a334f9343
+  addComment :: Flickr.Types.PhotosetID
+                -> GHC.Base.String
+                -> Flickr.Monad.FM Flickr.Types.CommentID
+    {- Arity: 2, Strictness: <L,U><L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.PhotosetID w1 :: GHC.Base.String ->
+                   case Flickr.Photosets.Comments.$waddComment
+                          w
+                          w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.CommentID ww1 }) -}
+950d0d207c392a016911eb9cbc663abc
+  addComment1 :: Text.XML.Light.Types.QName
+    {- Unfolding: (Text.XML.Light.Types.QName
+                     Flickr.Types.Import.eltAuthToken2
+                     (Data.Maybe.Nothing @ GHC.Base.String)
+                     (Data.Maybe.Nothing @ GHC.Base.String)) -}
+e303a74e8d6b23fe8c5c0e52de88a0be
+  addComment2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "comment_text"#) -}
+84e9c109fe79f658b13212ca5f78dc73
+  addComment3 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "photoset_id"#) -}
+5a41bd85df78a59bed03bb8cfa64df2d
+  addComment4 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photosets.comments.addComment"#) -}
+73370d61888cf4ae6fb6d306a07e93c8
+  deleteComment :: Flickr.Types.CommentID -> Flickr.Monad.FM ()
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.CommentID ->
+                   case Flickr.Monad.$wflickCall_
+                          Flickr.Photosets.Comments.deleteComment2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.Photosets.Comments.deleteComment1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   Flickr.Monad.FM
+                     @ ()
+                     (\ env :: Flickr.Monad.FMEnv ->
+                      ww1
+                        (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                         Flickr.Monad.FMEnv
+                           ds1
+                           GHC.Types.True
+                           GHC.Types.True
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           Flickr.Monad.withWritePerm1
+                           ds9
+                           ds10
+                           ds11 })) }) -}
+2a641ecb24028df7d6a68ff22374019b
+  deleteComment1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "comment_id"#) -}
+9c065fa5caece23ea4c8c7e85c07dc37
+  deleteComment2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photosets.comments.deleteComment"#) -}
+4bd59d0615642aa5b52bb8df6988fedf
+  editComment :: Flickr.Types.CommentID
+                 -> GHC.Base.String
+                 -> Flickr.Monad.FM ()
+    {- Arity: 2, Strictness: <L,U><L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.CommentID w1 :: GHC.Base.String ->
+                   case Flickr.Photosets.Comments.$weditComment
+                          w
+                          w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ () ww1 }) -}
+4df4028b9baebced8ef9fd07e14cbe27
+  editComment1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photosets.comments.editComment"#) -}
+b6b894cd4d4517d64a91606ef8f17188
+  getList :: Flickr.Types.PhotosetID
+             -> Flickr.Monad.FM [Flickr.Types.Comment]
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.PhotosetID ->
+                   case Flickr.Photosets.Comments.$wgetList w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ [Flickr.Types.Comment] ww1 }) -}
+ac758fa52eb802350b9e6edb1bc861f9
+  getList1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.photosets.comments.getList"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

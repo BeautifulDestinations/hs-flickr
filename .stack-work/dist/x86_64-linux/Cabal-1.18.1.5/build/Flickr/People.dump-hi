@@ -1,0 +1,430 @@
+
+==================== FINAL INTERFACE ====================
+2016-03-01 11:43:08.121529 UTC
+
+interface flickr-0.3.3:Flickr.People 7084
+  interface hash: 816f92e404dd9dca9b9d18318fda18d8
+  ABI hash: 2c5b1ce1f74f48d807d57cfccb1ff7b1
+  export-list hash: 4d9fbfd36e7c8082d3ea86db625adf99
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 33e5b289809cf83d673df26976face9f
+  used TH splices: False
+  where
+exports:
+  Flickr.People.findByEmail
+  Flickr.People.findByUsername
+  Flickr.People.getInfo
+  Flickr.People.getPublicGroups
+  Flickr.People.getPublicPhotos
+  Flickr.People.getUploadStatus
+module dependencies: Codec.Percent Codec.URLEncoder Flickr.Monad
+                     Flickr.Types Flickr.Types.Import Flickr.Utils Util.Fetch Util.Keys
+                     Util.MD5 Util.MIME Util.Post
+package dependencies: HTTP-4000.2.20 array-0.5.0.0 base
+                      bytestring-0.10.4.0 deepseq-1.3.0.2 filepath-1.3.0.2 ghc-prim
+                      integer-gmp mime-0.3.4 mtl-2.1.3.1 network-2.6.2.1
+                      network-uri-2.6.0.3 old-locale-1.0.0.6 old-time-1.1.0.2
+                      parsec-3.1.9 random-1.1 text-1.2.0.6 time-1.4.2
+                      transformers-0.3.0.0 utf8-string-1 xml-1.3.14
+orphans: base:GHC.Base base:GHC.Float base:GHC.Real
+         network-2.6.2.1:Network.Socket network-2.6.2.1:Network.Socket.Types
+         random-1.1:System.Random text-1.2.0.6:Data.Text
+         text-1.2.0.6:Data.Text.Lazy time-1.4.2:Data.Time.Calendar.Gregorian
+         time-1.4.2:Data.Time.Format.Parse
+         time-1.4.2:Data.Time.LocalTime.LocalTime
+         transformers-0.3.0.0:Control.Monad.Trans.Error
+family instance modules: base:Control.Applicative base:Data.Either
+                         base:Data.Monoid base:Data.Type.Equality base:GHC.Exts
+                         base:GHC.Generics network-uri-2.6.0.3:Network.URI
+                         text-1.2.0.6:Data.Text text-1.2.0.6:Data.Text.Lazy
+import  -/  base:Control.Monad 483e787e07c2e49f1fb1c1b88665cb92
+import  -/  base:Data.Maybe 5034d40e23c3a7110309f188001df4ca
+import  -/  base:Data.Tuple cac4e06c48274e85317bd3e59867ef5b
+import  -/  base:GHC.Base 5d7c5f596f9a4c8a8abd8517c8bcd5dd
+import  -/  base:GHC.Enum 21572a7ecadc01c858f3321ea577e161
+import  -/  base:GHC.Show cf1a7ff9edb0f41528085aad04d33753
+import  -/  base:Prelude 74043f272d60acec1777d3461cfe5ef4
+import  -/  Flickr.Monad 674fd2fea86aa2605cc91229a555ec49
+  exports: d889671f2b278e4b47117b8a29fd3d51
+  FM 9e0a04bb4803c174c013b2fb8be73ec0
+  flickCall 251ebfad767c69b4942bfcec2091f0ff
+  flickTranslate e491e152a5d427431ba516a4c3704787
+  flickrCall 34898e4ffd59bc42983538432cb8d2c6
+  lsArg c3c9ceb6cf2fc5ee33bd67fb297f08ca
+  mbArg fa8e1aa0b07207d002e5dac562d3d3bf
+  parseDoc ebc82270611937ab5ebfce244f09c14d
+  withReadPerm 6aa3446da9d22d6d7f84a29bfdacb8f8
+import  -/  Flickr.Types 7f9bcf8be6aa7e347e0e2da5c74c6e45
+  exports: 7c44d1c58d100ffa2b43ca34db9b517a
+  Bandwidth 52f02f20b5238b5d22bf6119fd16c065
+  FileSize e65c6b7b881286adc105dfb734774a3d
+  Group af878999f035a0a349d907549a644796
+  Photo 2deca11afc0a961b40b35bcb8cfdb204
+  PhotoInfo 80f14b9fec26e6389cc8843e842ac6d9
+  PhotosetQuota f64dd8c26447a298587ff65042da11c3
+  Safety 3e889d9e2f824714d8a9cd713c30a35c
+  User 5f85fd7c8b4696b56ab0c1231a6049c3
+  UserID c293dabe8f0c6a26ce6f08bd072224fe
+  UserName 8072d29e100bd6d5bffb7d99e3dfb8b3
+import  -/  Flickr.Types.Import da2c9786faefb0407bdc4730d0d4b181
+  exports: 85b5f3b03fa235dd576ef02c774e9eab
+  eltBandwidth 04d5e9e4d7bce34a7adc2ac2072d85e1
+  eltFileSize 02d6e97d4e0bf09a30c7a073aa5682b7
+  eltPhotosetQuota fc38065bbfaee7fd2642193539352098
+  eltUser 995cecd72f82cb21a8b10682fa2e7cfb
+  toGroupList ed8352fb9fd593cf3e219cbea7034c3b
+  toPhotoList 35e814ac6bfec3a1de4ef5e719304676
+  toUser 26b4735e6cd2b98e26b1ca726c5e9c53
+import  -/  Flickr.Utils 68facf93de1ef1e4c93b470398fe5414
+  exports: 7ebed314ffe0fcb0fea5a3de318e595b
+  nsName 13a53574b6a1b9c1497f6aa27508e98b
+import  -/  xml-1.3.14:Text.XML.Light.Proc 277b74c044fa89f0db17455b56117130
+483f04597fa071e15f8327f42fbc018c
+  $wfindByEmail :: GHC.Base.String
+                   -> (# Flickr.Monad.FMEnv -> GHC.Types.IO Flickr.Types.User #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: GHC.Base.String ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.People.findByEmail2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.People.findByEmail1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.User
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case Flickr.Types.Import.$weltUser ww4 ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.User
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww7 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww7
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww9 ww10)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0] <Flickr.Types.User>_R)) #) }) -}
+a0186768c951d7a139a4099093663df2
+  $wfindByUsername :: Flickr.Types.UserName
+                      -> (# Flickr.Monad.FMEnv -> GHC.Types.IO Flickr.Types.User #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: Flickr.Types.UserName ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.People.findByUsername2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.People.findByUsername1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.User
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case Flickr.Types.Import.$weltUser ww4 ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.User
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww7 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww7
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww9 ww10)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0] <Flickr.Types.User>_R)) #) }) -}
+9c9068e47b7a5b58e7166e4d54a46c7e
+  $wgetInfo :: Flickr.Types.UserID
+               -> GHC.Types.Bool
+               -> (# Flickr.Monad.FMEnv -> GHC.Types.IO Flickr.Types.User #)
+    {- Arity: 2, Strictness: <L,U><S,1*U>,
+       Unfolding: (\ w :: Flickr.Types.UserID w1 :: GHC.Types.Bool ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.People.getInfo2
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.People.getInfo1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   let {
+                     a3 :: Flickr.Monad.FMEnv
+                           -> GHC.Prim.State# GHC.Prim.RealWorld
+                           -> (# GHC.Prim.State# GHC.Prim.RealWorld, Flickr.Types.User #)
+                       {- Arity: 2 -}
+                     = \ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ Flickr.Types.User
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case Flickr.Types.Import.$weltUser ww4 ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ Flickr.Types.User
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww7 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww7
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww8 { (#,#) ww9 ww10 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww9 ww10)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } }
+                   } in
+                   case w1 of wild {
+                     GHC.Types.False
+                     -> (# a3
+                             `cast`
+                           (<Flickr.Monad.FMEnv>_R
+                            ->_R Sym (GHC.Types.NTCo:IO[0] <Flickr.Types.User>_R)) #)
+                     GHC.Types.True
+                     -> (# (\ env :: Flickr.Monad.FMEnv
+                              eta :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                            a3
+                              (case env of wild1 { Flickr.Monad.FMEnv ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                               Flickr.Monad.FMEnv
+                                 ds1
+                                 GHC.Types.True
+                                 ds3
+                                 ds4
+                                 ds5
+                                 ds6
+                                 ds7
+                                 Flickr.Monad.withReadPerm1
+                                 ds9
+                                 ds10
+                                 ds11 })
+                              eta)
+                             `cast`
+                           (<Flickr.Monad.FMEnv>_R
+                            ->_R Sym (GHC.Types.NTCo:IO[0] <Flickr.Types.User>_R)) #) } }) -}
+41850250b6e51630a5487945d9269293
+  $wgetPublicGroups :: Flickr.Types.UserID
+                       -> (# Flickr.Monad.FMEnv -> GHC.Types.IO [Flickr.Types.Group] #)
+    {- Arity: 1, Strictness: <L,U>,
+       Unfolding: (\ w :: Flickr.Types.UserID ->
+                   case Flickr.Monad.$wflickCall
+                          Flickr.People.getPublicGroups1
+                          (GHC.Types.:
+                             @ (GHC.Base.String, GHC.Base.String)
+                             (Flickr.People.getInfo1, w)
+                             (GHC.Types.[]
+                                @ (GHC.Base.String, GHC.Base.String))) of ww { (##) ww1 ->
+                   (# (\ env :: Flickr.Monad.FMEnv
+                         s :: GHC.Prim.State# GHC.Prim.RealWorld ->
+                       case (ww1 env) `cast` (GHC.Types.NTCo:IO[0] <GHC.Base.String>_R)
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Flickr.Monad.checkResponse ipv1 of wild {
+                         Data.Either.Left err
+                         -> GHC.Prim.raiseIO#
+                              @ GHC.Exception.SomeException
+                              @ [Flickr.Types.Group]
+                              (Flickr.Monad.$fExceptionFlickErr_$ctoException err)
+                              ipv
+                         Data.Either.Right x
+                         -> case x of ww2 { Text.XML.Light.Types.Element ww3 ww4 ww5 ww6 ->
+                            case ww3 of ww7 { Text.XML.Light.Types.QName ww8 ww9 ww10 ->
+                            case Flickr.Types.Import.$weltGroupList ww8 ww9 ww10 ww5 of wild1 {
+                              Data.Maybe.Nothing
+                              -> GHC.Prim.raiseIO#
+                                   @ GHC.Exception.SomeException
+                                   @ [Flickr.Types.Group]
+                                   (Flickr.Monad.$fExceptionFlickErr_$ctoException
+                                      (Flickr.Monad.FlickErr
+                                         Flickr.Monad.checkResponse14
+                                         Flickr.Monad.FlickParseError
+                                         (GHC.Types.[] @ GHC.Types.Char)
+                                         (Data.Maybe.Nothing @ GHC.Base.String)
+                                         (case GHC.List.$wlenAcc
+                                                 @ GHC.Types.Char
+                                                 ipv1
+                                                 0 of ww11 { DEFAULT ->
+                                          case GHC.Show.$wshowSignedInt
+                                                 0
+                                                 ww11
+                                                 (GHC.Types.[]
+                                                    @ GHC.Types.Char) of ww12 { (#,#) ww13 ww14 ->
+                                          GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (GHC.Types.: @ GHC.Types.Char ww13 ww14)
+                                            (GHC.Types.:
+                                               @ GHC.Types.Char
+                                               Flickr.Monad.parseDoc1
+                                               ipv1) } })))
+                                   ipv
+                              Data.Maybe.Just res -> (# ipv, res #) } } } } })
+                        `cast`
+                      (<Flickr.Monad.FMEnv>_R
+                       ->_R Sym (GHC.Types.NTCo:IO[0] <[Flickr.Types.Group]>_R)) #) }) -}
+78951fec34c015bb6c67a46482408001
+  $wgetPublicPhotos :: Flickr.Types.UserID
+                       -> Data.Maybe.Maybe Flickr.Types.Safety
+                       -> [Flickr.Types.PhotoInfo]
+                       -> (# Flickr.Monad.FMEnv -> GHC.Types.IO [Flickr.Types.Photo] #)
+    {- Arity: 3, Strictness: <L,U><L,1*U><L,1*U> -}
+1593efdf9f1affdaae6bc01843de8085
+  findByEmail :: GHC.Base.String -> Flickr.Monad.FM Flickr.Types.User
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: GHC.Base.String ->
+                   case Flickr.People.$wfindByEmail w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.User ww1 }) -}
+1410ebdb1fd11b653826dae5f0e2babf
+  findByEmail1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "find_email"#) -}
+2895de8765f7fa7700022309e83a03af
+  findByEmail2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.people.findByEmail"#) -}
+539020b5ff076d6345651627d69b0a9c
+  findByUsername :: Flickr.Types.UserName
+                    -> Flickr.Monad.FM Flickr.Types.User
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.UserName ->
+                   case Flickr.People.$wfindByUsername w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.User ww1 }) -}
+d0b45a63be52d7dd5f068a92106fe8a6
+  findByUsername1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "username"#) -}
+5d55c971be3466b3d3665fd3510f9b83
+  findByUsername2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.people.findByUsername"#) -}
+5ac5876c7677d2dccfb006e65842d14d
+  getInfo :: Flickr.Types.UserID
+             -> GHC.Types.Bool
+             -> Flickr.Monad.FM Flickr.Types.User
+    {- Arity: 2, Strictness: <L,U><S,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (2, True, False)
+                  (\ w :: Flickr.Types.UserID w1 :: GHC.Types.Bool ->
+                   case Flickr.People.$wgetInfo w w1 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ Flickr.Types.User ww1 }) -}
+33a6ccb8ee7f71d458aa038456d342e4
+  getInfo1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString# "user_id"#) -}
+9fd8dbef964f68c3beb30c34b833328c
+  getInfo2 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.people.getInfo"#) -}
+ef721167ed50bbdf0d4f98eadee45386
+  getPublicGroups :: Flickr.Types.UserID
+                     -> Flickr.Monad.FM [Flickr.Types.Group]
+    {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (1, True, False)
+                  (\ w :: Flickr.Types.UserID ->
+                   case Flickr.People.$wgetPublicGroups w of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ [Flickr.Types.Group] ww1 }) -}
+39855026f125a82a84981943465f914f
+  getPublicGroups1 :: [GHC.Types.Char]
+    {- Unfolding: (GHC.CString.unpackCString#
+                     "flickr.people.getPublicGroups"#) -}
+68ad16ac69954525b753e2d9dbe98a19
+  getPublicPhotos :: Flickr.Types.UserID
+                     -> Data.Maybe.Maybe Flickr.Types.Safety
+                     -> [Flickr.Types.PhotoInfo]
+                     -> Flickr.Monad.FM [Flickr.Types.Photo]
+    {- Arity: 3, Strictness: <L,U><L,1*U><L,1*U>m, Inline: INLINE[0],
+       Unfolding: InlineRule (3, True, False)
+                  (\ w :: Flickr.Types.UserID
+                     w1 :: Data.Maybe.Maybe Flickr.Types.Safety
+                     w2 :: [Flickr.Types.PhotoInfo] ->
+                   case Flickr.People.$wgetPublicPhotos w w1 w2 of ww { (##) ww1 ->
+                   Flickr.Monad.FM @ [Flickr.Types.Photo] ww1 }) -}
+be9bda34833ce844d59c76f9b1103b10
+  getUploadStatus :: Flickr.Monad.FM
+                         (Flickr.Types.User,
+                          Flickr.Types.Bandwidth,
+                          Flickr.Types.FileSize,
+                          Flickr.Types.PhotosetQuota)
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
