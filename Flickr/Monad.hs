@@ -26,6 +26,8 @@ import Control.Exception as CE
 import System.FilePath as FilePath ( takeExtension )
 
 import Data.Typeable
+import Control.Applicative
+import Control.Monad
 
 data FM a = FM (FMEnv -> IO a)
 
@@ -43,6 +45,13 @@ data FMEnv
     , fm_auth_mini_token :: Maybe String
     , fm_api_base        :: Maybe String
     }
+
+instance Functor FM where
+  fmap = liftM
+
+instance Applicative FM where
+  pure x = FM (\ _ -> return x)
+  (<*>) = ap
 
 instance Monad FM where
   return x = FM (\ _ -> return x)
