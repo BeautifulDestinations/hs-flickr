@@ -22,8 +22,14 @@ module Util.Fetch
 
 --import Network.Curl
 import Network.Browser
+import Network.HTTP.Conduit (simpleHttp)
 import Network.HTTP
 import Network.URI
+
+import Data.ByteString.Lazy (toStrict)
+
+import Data.Text (unpack)
+import Data.Text.Encoding (decodeUtf8)
 
 type URLString = String
 
@@ -33,18 +39,9 @@ data User
 	}
 
 readContentsURL :: URLString -> IO String
-readContentsURL u = do
-  req <-
-    case parseURI u of
-      Nothing -> fail ("ill-formed URL: " ++ u)
-      Just ur -> return (defaultGETRequest_ ur)
-    -- don't like doing this, but HTTP is awfully chatty re: cookie handling..
-  let nullHandler _ = return ()
-  print req
-  (_u, resp) <- browse $ setOutHandler nullHandler >> request req
-  case rspCode resp of
-    (2,_,_) -> return (rspBody resp)
-    _ -> fail ("Failed reading URL " ++ show u ++ " code: " ++ show (rspCode resp))
+readContentsURL url = do
+  respBody <- simpleHttp url
+  return $ unpack $ decodeUtf8 $ toStrict respBody
 
 {- Curl version:
 readContentsURL :: URLString -> IO String

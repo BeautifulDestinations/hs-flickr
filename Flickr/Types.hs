@@ -64,9 +64,9 @@ data AuthRequest
      { authKey        :: Key
      , authPermission :: String
      , authFrob       :: Maybe AuthFrob
-     , authSig        :: Signature 
+     , authSig        :: Signature
      }
-     
+
 data AuthFrob = AuthFrob { aFrob :: String }
 
 type AuthTokenValue = String
@@ -121,7 +121,7 @@ data Activity
      , actUser    :: User
      , actDate    :: DateString
      , actContent :: String
-     } 
+     }
 
 data Item
  = Item
@@ -138,7 +138,7 @@ data Item
      , itPrimary  :: Integer
      , itMore     :: Bool
      }
-     
+
 data Blog
  = Blog
      { blogId      :: BlogID
@@ -183,7 +183,7 @@ data PhotoDetails
      , photoDetailsTags     :: [TagDetails]
      , photoDetailsURLs     :: [URLDetails]
      }
-     
+
 data PhotoSize
  = PhotoSizeSmallSquare
  | PhotoSizeThumb
@@ -197,12 +197,12 @@ data PhotoDate
  = PhotoDate
      { photoDatePosted :: DateString
      , photoDateTaken  :: DateString
-     , photoDateLastUpdate :: DateString     
+     , photoDateLastUpdate :: DateString
      , photoDateGranularity :: Maybe Int
      }
 
 data Note
- = Note 
+ = Note
     { noteId         :: NoteID
     , noteAuthor     :: UserID
     , noteAuthorName :: UserName
@@ -225,9 +225,9 @@ data PhotoInfo
  | PhotoO_Dims
  | PhotoViews
  | PhotoMedia
- 
+
 instance Show PhotoInfo where
-  show x = 
+  show x =
    case x of
      PhotoLicense -> "license"
      PhotoDateUpload -> "date_upload"
@@ -244,7 +244,7 @@ instance Show PhotoInfo where
      PhotoMedia -> "media"
 
 data Photoset
- = Photoset 
+ = Photoset
      { photosetId           :: PhotoID
      , photosetOwner        :: UserID
      , photosetPrimaryPhoto :: PhotoID
@@ -258,7 +258,7 @@ data PhotoPool
      { photoPoolId    :: PhotoID
      , photoPoolTitle :: String
      }
-     
+
 data PhotoContext
  = PhotoContext
      { photoCtxtPage    :: Maybe Int
@@ -284,14 +284,14 @@ instance Show MediaType where
   show All = "all"
   show Photos = "photos"
   show Videos = "videos"
- 
+
 data Privacy
  = Public
  | Contacts
  | Private Bool{-for friends?-} Bool{-for family?-}
 
 instance Enum Privacy where
-  fromEnum x = 
+  fromEnum x =
     case x of
       Public -> 1
       Contacts -> 2 -- hmm..
@@ -299,8 +299,8 @@ instance Enum Privacy where
       Private False True -> 3
       Private True True  -> 4
       Private False False -> 5
-      
-  toEnum x = 
+
+  toEnum x =
    case x of
      0 -> Public
      1 -> Public
@@ -324,7 +324,9 @@ instance Show AscDesc where
   show Desc = "desc"
 
 instance Show SortKey where
- show x = sortKind x ++ '-':show (sortDir x)
+ show x = case sortKind x of
+   "relevance" -> "relevance"
+   _ -> sortKind x ++ '-':show (sortDir x)
 
 data EXIF
  = EXIF
@@ -333,15 +335,15 @@ data EXIF
    , exifRaw      :: Maybe String
    , exifClean    :: Maybe String
    }
-   
+
 data EXIFTag
   = EXIFTag
      { exifTagId      :: Tag
      , exifTagspace   :: String
      , exifTagspaceId :: Tag
      }
-     
-data Safety 
+
+data Safety
   = Safe | Moderate | Restricted
     deriving ( Enum )
 
@@ -355,10 +357,10 @@ type DateGranularity = Int
  -- 4 => Y-m
  -- 6 => Y
 
-data ContentType 
+data ContentType
  = ContentPhoto | ContentScreenshot | ContentOther
    deriving ( Enum )
-	
+
 showContentType :: ContentType -> String
 showContentType c = show (succ (fromEnum c))
 
@@ -394,11 +396,11 @@ data BoundingBox
     }
 
 instance Show BoundingBox where
- show x = shows (bboxMinLongitude x) 
-            (',':shows (bboxMinLatitude x) 
+ show x = shows (bboxMinLongitude x)
+            (',':shows (bboxMinLatitude x)
 	       (',':shows (bboxMaxLongitude x)
  	        (',':shows (bboxMaxLatitude x) "")))
-    
+
 data Size = Size { sizeW :: Int, sizeH :: Int}
 data Point = Point { pointX :: Int, pointY :: Int}
 
@@ -409,7 +411,7 @@ data Comment
 	   , commentURL    :: Maybe URLString
 	   , commentText   :: String
 	   }
-	   
+
 data Permissions
  = Permissions
       { permId         :: PermissionID
@@ -419,7 +421,7 @@ data Permissions
       , permCommentLevel :: Int  -- 0 = nobody, 1 = friends&fam, 2 = contacts, 3 = everybody
       , permAddMetaLevel :: Int -- same
       }
-      
+
 data Ticket
  = Ticket
       { ticketId       :: TicketID
@@ -427,16 +429,16 @@ data Ticket
       , ticketInvalid  :: Bool
       , ticketPhoto    :: PhotoID
       }
-      
+
 data License
  = License { licenseId :: LicenseID
            , licenseName :: String
 	   , licenseLink :: URLString
 	   }
-	   
- 
-data PlaceQuery 
- = PlaceQuery 
+
+
+data PlaceQuery
+ = PlaceQuery
      { placeQuery          :: Maybe String
      , placeQueryLatitude  :: Maybe Decimal
      , placeQueryLongitude :: Maybe Decimal
@@ -470,7 +472,7 @@ data Place
 data GroupCat
  = SubCat SubCategory
  | AGroup Group
- 
+
 data Category
  = Category
     { catName   :: String
@@ -489,7 +491,7 @@ data Group
     , groupChatId   :: Maybe ChatId
     , groupInChat   :: Maybe Integer
     }
-    
+
 data SubCategory
  = SubCategory
     { subCatId :: CategoryID
@@ -544,7 +546,7 @@ data URLDetails
 data Filter = Friends | Family | Both | Neither
 
 instance Show Filter where
-  show x = 
+  show x =
     case x of
       Friends -> "friends"
       Family  -> "family"
@@ -562,7 +564,7 @@ data Contact
      }
 
 data SizeDetails
- = SizeDetails 
+ = SizeDetails
      { sizeDetailsLabel  :: String
      , sizeDetailsWidth  :: Int
      , sizeDetailsHeight :: Int
@@ -613,7 +615,7 @@ data MachineTag
      }
 
 data DateDetails
- = DateDetails 
+ = DateDetails
      { dateMinTaken  :: Maybe DateString
      , dateMaxTaken  :: Maybe DateString
      , dateMinUpload :: Maybe DateString
@@ -627,7 +629,7 @@ nullDateDetails = DateDetails
      , dateMinUpload = Nothing
      , dateMaxUpload = Nothing
      }
-     
+
 data TagInfo
  = TagInfo
      { tagName  :: String

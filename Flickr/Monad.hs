@@ -133,16 +133,16 @@ getMobileAuthURL :: FM URLString
 getMobileAuthURL = FM (\ env -> return (fromMaybe "" (fm_api_base env)))
 
 api_base :: URLString
-api_base = "http://api.flickr.com/services/rest/"
+api_base = "https://api.flickr.com/services/rest/"
 
 auth_base :: URLString
-auth_base = "http://api.flickr.com/services/auth/?"
+auth_base = "https://api.flickr.com/services/auth/?"
 
 upload_base :: URLString
-upload_base = "http://api.flickr.com/services/upload/"
+upload_base = "https://api.flickr.com/services/upload/"
 
 replace_base :: URLString
-replace_base = "http://api.flickr.com/services/replace/"
+replace_base = "https://api.flickr.com/services/replace/"
 
 flickTranslate :: (String -> ErrM a)
                -> FM String
@@ -267,7 +267,6 @@ genLoginURL api_key secret frob perm =
 
 restGet :: {-URL-}String -> [(String,String)] -> IO String
 restGet a kv = do
-  print ("DEBUG (Flickr/Monad.hs):" ++ a ++ wArgs kv)
   readContentsURL (a ++ wArgs kv)
  where
    wArgs [] = ""
