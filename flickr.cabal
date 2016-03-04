@@ -66,7 +66,7 @@ library
  build-depends:   base >= 4
                 , HTTP
                 , network
-                , xml, mime >= 0.3
+                , xml, mime
                 , random
                 , utf8-string
                 , filepath
