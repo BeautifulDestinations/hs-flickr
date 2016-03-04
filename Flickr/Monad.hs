@@ -111,8 +111,8 @@ getAuthMiniToken = FM (\env -> return (fromMaybe "" (fm_auth_mini_token env)))
 withPageSize :: Int -> FM a -> FM a
 withPageSize sz (FM x) = FM (\ env -> x env{fm_is_paged=True,fm_per_page=Just sz})
 
-withNumPages :: Int -> FM a -> FM a
-withNumPages n (FM x) = FM (\env -> x $ env {fm_is_paged=True, fm_page=Just n})
+withPage :: Int -> FM a -> FM a
+withPage n (FM x) = FM (\env -> x $ env {fm_is_paged=True, fm_page=Just n})
 
 onlyTheseProperties :: [String] -> FM a -> FM a
 onlyTheseProperties ps (FM x) = FM (\ env -> x env{fm_include_props=Just ps})

@@ -26,26 +26,26 @@ import Control.Monad
 
 -- | Add tags to a photo.
 addTags :: PhotoID -> [Tag] -> FM ()
-addTags pid tgs = withWritePerm $ postMethod $ 
+addTags pid tgs = withWritePerm $ postMethod $
   flickCall_ "flickr.photos.addTags"
-             (lsArg "tags" tgs 
+             (lsArg "tags" tgs
 	            [ ("photo_id", pid) ])
 
 -- | Delete a photo from flickr.
 delete :: PhotoID -> FM ()
-delete pid = withDeletePerm $ postMethod $ 
+delete pid = withDeletePerm $ postMethod $
   flickCall_ "flickr.photos.delete"
              [ ("photo_id", pid) ]
 
 -- | Returns all visible sets and pools the photo belongs to.
 getAllContexts :: PhotoID -> FM ([Photoset],[PhotoPool])
-getAllContexts pid = 
+getAllContexts pid =
   flickTranslate toResList $
     flickrCall "flickr.photos.getAllContexts"
                [ ("photo_id", pid) ]
- where  
+ where
   toResList s = parseDoc eltRes s
-  
+
   eltRes e = do
     let ss = mapMaybe eltPhotoset  $ findChildren (nsName "set") e
     let ps = mapMaybe eltPhotoPool $ findChildren (nsName "pool") e
@@ -75,37 +75,37 @@ getContactsPublicPhotos mbCount just_friends single_photo include_self extras  =
 
 -- | Fetch a list of recent photos from the calling users' contacts.
 getContext :: PhotoID -> FM (Photo,Photo)
-getContext pid = 
+getContext pid =
   flickTranslate toPhotoPair $
     flickrCall "flickr.photos.getContext"
                [ ("photo_id", pid) ]
 
 -- | Gets a list of photo counts for the given date ranges for the calling user.
 getCounts :: [DateString] -> [DateString] -> FM [PhotoCount]
-getCounts unix_ts sql_ts = 
+getCounts unix_ts sql_ts =
   flickTranslate toPhotoCountList $
     flickrCall "flickr.photos.getCounts"
                (lsArg "dates"  unix_ts $
 	         lsArg "taken_dates" sql_ts [])
 
--- | Retrieves a list of EXIF/TIFF/GPS tags for a given photo. The calling user 
+-- | Retrieves a list of EXIF/TIFF/GPS tags for a given photo. The calling user
 -- must have permission to view the photo.
 getExif :: PhotoID -> Maybe String -> FM [EXIF]
-getExif pid secret = 
+getExif pid secret =
   flickTranslate toEXIFList $
     flickrCall "flickr.photos.getExif"
-               (mbArg "secret"  secret 
+               (mbArg "secret"  secret
 	         [ ("photo_id", pid) ])
 
 -- | Returns the list of people who have favorited a given photo.
 getFavorites :: PhotoID -> FM [(User,Date)]
-getFavorites pid = 
+getFavorites pid =
   flickTranslate toResList $
     flickrCall "flickr.photos.getFavorites"
 	         [ ("photo_id", pid) ]
- where  
+ where
   toResList s = parseDoc eltRes s
-  
+
   eltRes e = do
     let es = findChildren (nsName "person") e
     mapM ( \ p -> do
@@ -115,10 +115,10 @@ getFavorites pid =
 
 -- | Get information about a photo. The calling user must have permission to view the photo.
 getInfo :: PhotoID -> Maybe String -> FM PhotoDetails
-getInfo pid secret = 
+getInfo pid secret =
   flickTranslate toPhotoDetails $
     flickrCall "flickr.photos.getInfo"
-               (mbArg "secret"  secret 
+               (mbArg "secret"  secret
 	         [ ("photo_id", pid) ])
 
 -- | Returns a list of your photos that are not part of any sets.
@@ -144,7 +144,7 @@ getNotInSet mbUpload mbTaken priv med extras = liftM snd $
 
   mbTaken1 = fmap fst mbTaken
   mbTaken2 = mbTaken >>= \ x -> snd x
-  
+
 
 
 -- | Get permissions for a photo.
@@ -163,7 +163,7 @@ getRecent extras = liftM snd $
 
 -- | Returns the available sizes for a photo. The calling user must have permission to view the photo.
 getSizes :: PhotoID -> FM [SizeDetails]
-getSizes pid = 
+getSizes pid =
   flickTranslate toSizeList $
     flickrCall "flickr.photos.getSizes"
 	       [ ("photo_id", pid) ]
@@ -191,7 +191,7 @@ getUntagged mbUpload mbTaken priv med extras = liftM snd $
 
   mbTaken1 = fmap fst mbTaken
   mbTaken2 = mbTaken >>= \ x -> snd x
-  
+
 -- | Returns a list of your geo-tagged photos.
 getWithGeoData :: Maybe DateInterval
 	       -> Maybe DateInterval
@@ -245,33 +245,33 @@ getWithoutGeoData mbUpload mbTaken priv sortKey med extras = liftM snd $
   mbTaken2 = mbTaken >>= \ x -> snd x
 
 
--- | Return a list of your photos that have been recently created or which have 
--- been recently modified. Recently modified may mean that the photo's metadata (title, 
--- description, tags) may have been changed or a comment has been 
+-- | Return a list of your photos that have been recently created or which have
+-- been recently modified. Recently modified may mean that the photo's metadata (title,
+-- description, tags) may have been changed or a comment has been
 -- added (or just modified somehow :-)
 recentlyUpdated :: DateString -> [PhotoInfo] -> FM (PhotoContext, [Photo])
 recentlyUpdated minDate extras = withReadPerm $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.recentlyUpdated"
-               (lsArg "extras" (map show extras) 
+               (lsArg "extras" (map show extras)
 	         [ ("min_date", minDate) ])
 
 -- | Remove a tag from a photo.
 removeTag :: Tag -> FM ()
-removeTag tag = withWritePerm $ postMethod $ 
+removeTag tag = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.removeTag"
 	       [ ("tag_id", tag) ]
 
--- | Return a list of photos matching some criteria. Only photos 
--- visible to the calling user will be returned. To return private 
--- or semi-private photos, the caller must be authenticated 
--- with 'read' permissions, and have permission to view the 
+-- | Return a list of photos matching some criteria. Only photos
+-- visible to the calling user will be returned. To return private
+-- or semi-private photos, the caller must be authenticated
+-- with 'read' permissions, and have permission to view the
 -- photos. Unauthenticated calls will only return public photos.
 search :: Maybe UserID
        -> SearchConstraints
        -> [PhotoInfo]
        -> FM (PhotoContext, [Photo])
-search uid sc extras = 
+search uid sc extras =
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.search"
                (mbArg "user_id" uid $
@@ -370,7 +370,7 @@ nullSearchConstraints = SearchConstraints
 
 -- | Set the content type of a photo.
 setContentType :: PhotoID -> ContentType -> FM ()
-setContentType pid c = withWritePerm $ postMethod $ 
+setContentType pid c = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setContentType"
 	       [ ("photo_id", pid)
 	       , ("content_type", showContentType c)
@@ -378,7 +378,7 @@ setContentType pid c = withWritePerm $ postMethod $
 
 -- | Set one or both of the dates for a photo.
 setDates :: PhotoID -> Maybe DateString -> Maybe DateString -> Maybe DateGranularity -> FM ()
-setDates pid datePosted dateTaken dateTakenGranularity = withWritePerm $ postMethod $ 
+setDates pid datePosted dateTaken dateTakenGranularity = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setDates"
 	       (mbArg "date_posted" datePosted $
 	         mbArg "date_taken" dateTaken $
@@ -387,7 +387,7 @@ setDates pid datePosted dateTaken dateTakenGranularity = withWritePerm $ postMet
 
 -- | Set the meta information for a photo.
 setMeta :: PhotoID -> Title -> Description -> FM ()
-setMeta pid title desc = withWritePerm $ postMethod $ 
+setMeta pid title desc = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setMeta"
 	       [ ("photo_id", pid)
 	       , ("title", title)
@@ -396,7 +396,7 @@ setMeta pid title desc = withWritePerm $ postMethod $
 
 -- | Set permissions for a photo.
 setPerms :: PhotoID -> Permissions -> FM ()
-setPerms pid p = withWritePerm $ postMethod $ 
+setPerms pid p = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setPerms"
                [ ("photo_id", pid)
 	       , ("is_public", showBool (permIsPublic p))
@@ -408,7 +408,7 @@ setPerms pid p = withWritePerm $ postMethod $
 
 -- | Set the safety level of a photo.
 setSafetyLevel :: PhotoID -> Maybe Safety -> Maybe Bool -> FM ()
-setSafetyLevel pid mbSaf mbHid = withWritePerm $ postMethod $ 
+setSafetyLevel pid mbSaf mbHid = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setSafetyLevel"
 	       (mbArg "safety_level" (fmap showSafety mbSaf) $
 	         mbArg "hidden" (fmap showBool mbHid) $
@@ -416,7 +416,7 @@ setSafetyLevel pid mbSaf mbHid = withWritePerm $ postMethod $
 
 -- | Set the tags for a photo.
 setTags :: PhotoID -> [Tag] -> FM ()
-setTags pid ts = withWritePerm $ postMethod $ 
+setTags pid ts = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setTags"
 	       (lsArg "tags" ts $
 		    [ ("photo_id", pid)])
@@ -424,10 +424,10 @@ setTags pid ts = withWritePerm $ postMethod $
 -- | locate the URL for the photo..local, non-Flickr, helper function.
 -- Returns '<unknown>' if cannot be located.
 getPhotoURL :: PhotoDetails -> URLString
-getPhotoURL p = 
+getPhotoURL p =
    case fromMaybe "" (photoURL (photoDetailsPhoto p)) of
      "" -> case photoDetailsURLs p of
              [] -> "<unknown>"
 	     (u:_) -> urlDetailsURL u
      us -> us
-  
+
