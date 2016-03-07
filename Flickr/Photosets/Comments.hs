@@ -20,33 +20,33 @@ import Flickr.Types.Import
 -- | Add a comment to a photoset.
 addComment :: PhotosetID -> String -> FM CommentID
 addComment psid c = withWritePerm $ postMethod $
-  flickTranslate toCommentID $ 
+  flickTranslate toCommentID $
     flickrCall "flickr.photosets.comments.addComment"
                [ ("photoset_id", psid)
-	       , ("comment_text", c)
-	       ]
+           , ("comment_text", c)
+           ]
 
 -- | Delete a photoset comment as the currently authenticated user.
 deleteComment :: CommentID -> FM ()
 deleteComment cid = withWritePerm $ postMethod $
     flickCall_ "flickr.photosets.comments.deleteComment"
                [ ("comment_id", cid)
-	       ]
+           ]
 
 -- | Edit the text of a comment as the currently authenticated user.
 editComment :: CommentID -> String -> FM ()
 editComment cid c = withWritePerm $ postMethod $
     flickCall_ "flickr.photosets.comments.editComment"
                [ ("comment_id", cid)
-	       , ("comment_text", c)
-	       ]
+           , ("comment_text", c)
+           ]
 
 -- | Returns the comments for a photoset.
 getList :: PhotosetID -> FM [Comment]
-getList psid = 
-  flickTranslate toCommentList $ 
+getList psid =
+  flickTranslate toCommentList $
     flickrCall "flickr.photosets.comments.getList"
                [ ("photoset_id", psid)
-	       ]
+           ]
 
 

@@ -92,6 +92,7 @@ data User
      , userPhotoStat  :: Maybe UserPhotoStat
      , userAttrs      :: [XML.Attr]
      }
+ deriving (Eq, Ord)
 
 nullUser :: User
 nullUser
@@ -114,6 +115,7 @@ data UserPhotoStat
      { userPhotoFirst :: Maybe DateString
      , userPhotoCount :: Maybe Int
      }
+ deriving (Eq, Ord)
 
 data Activity
  = Activity
@@ -161,6 +163,7 @@ data Photo
      , photoFriend :: Maybe Bool
      , photoFamily :: Maybe Bool
      }
+ deriving (Ord, Eq)
 
 data PhotoDetails
  = PhotoDetails
