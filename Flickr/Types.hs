@@ -269,7 +269,7 @@ data PhotoContext
      , photoCtxtPerPage :: Maybe Int
      , photoCtxtTotal   :: Maybe Int
      }
-
+  deriving (Show)
 
 data PhotoCount
  = PhotoCount
