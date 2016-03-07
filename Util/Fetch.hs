@@ -20,9 +20,8 @@ module Util.Fetch
        , User(..)
        ) where
 
---import Network.Curl
 import Network.Browser
-import Network.HTTP.Conduit (simpleHttp)
+import Network.HTTP.Conduit (parseUrl, Request(..), Response(..), newManager, tlsManagerSettings, responseBody, httpLbs)
 import Network.HTTP
 import Network.URI
 
@@ -36,21 +35,17 @@ type URLString = String
 data User
  = User { userName :: String
         , userPass :: String
-	}
+    }
 
 readContentsURL :: URLString -> IO String
 readContentsURL url = do
-  respBody <- simpleHttp url
-  return $ unpack $ decodeUtf8 $ toStrict respBody
-
-{- Curl version:
-readContentsURL :: URLString -> IO String
-readContentsURL u = do
-  let opts = [ CurlFollowLocation True
-	     ]
-  (_,xs) <- curlGetString u opts
-  return xs
--}
+    req <- parseUrl url
+    manager <- newManager tlsManagerSettings
+    let req' = req { responseTimeout = Just timeout }
+    respBody <- responseBody <$> httpLbs req' manager
+    return $ unpack $ decodeUtf8 $ toStrict respBody
+  where
+    timeout = 6000000 -- 1 minute
 
 readUserContentsURL :: User -> URLString -> IO String
 readUserContentsURL usr us = do -- readContentsURL u
@@ -61,17 +56,10 @@ readUserContentsURL usr us = do -- readContentsURL u
     -- don't like doing this, but HTTP is awfully chatty re: cookie handling..
   let nullHandler _ = return ()
   (u, resp) <- browse $ do
-                  setOutHandler nullHandler
-                  setAllowBasicAuth True
-		  setAuthorityGen (\ _ _ -> return (Just (userName usr,userPass usr)))
-{-
-                  addAuthority AuthBasic{ auUsername = userName usr
-                                        , auPassword = userPass usr
-                                        , auRealm    = ""
-                                        , auSite     = nullURI{uriPath="/"}
-                                        }
--}
-                  request req
+      setOutHandler nullHandler
+      setAllowBasicAuth True
+      setAuthorityGen (\ _ _ -> return (Just (userName usr,userPass usr)))
+      request req
   case rspCode resp of
     (2,_,_) -> return (rspBody resp)
     _ -> fail ("Failed reading URL " ++ show u ++ " code: " ++ show (rspCode resp))
@@ -82,15 +70,16 @@ postContentsURL u hdrs body = do
   let hs =
        case parseHeaders $ map (\ (x,y) -> x++": " ++ y) hdrs of
          Left{} -> []
-	 Right xs -> xs
+         Right xs -> xs
   req0 <-
     case parseURI u of
       Nothing -> fail ("ill-formed URL: " ++ u)
       Just ur -> return (defaultGETRequest ur)
-  let req = req0{rqMethod=POST
-                ,rqBody=body
-		,rqHeaders=hs
-	        }
+  let req = req0{
+      rqMethod=POST
+    , rqBody=body
+    , rqHeaders=hs
+  }
   let nullHandler _ = return ()
   (_,rsp) <- browse $ setOutHandler nullHandler >> request req
   case rspCode rsp of
@@ -102,9 +91,9 @@ readUserContentsURL :: User -> URLString -> IO String
 readUserContentsURL u url = do
   let opts = [ CurlHttpAuth [HttpAuthAny]
              , CurlUserPwd (userName u ++
-	                    case userPass u of {"" -> ""; p -> ':':p })
+                        case userPass u of {"" -> ""; p -> ':':p })
              , CurlFollowLocation True
-	     ]
+         ]
   (_,xs) <- curlGetString url opts
   return xs
 
@@ -112,10 +101,10 @@ postContentsURL :: URLString -> [(String,String)] -> String -> IO String
 postContentsURL u hdrs body = do
   let opts = [ CurlCustomRequest "POST"
              , CurlFollowLocation True
-	     , CurlPost True
-	     , CurlPostFields [body]
-	     , CurlHttpTransferDecoding False
-	     ] ++ [CurlHttpHeaders (map ( \ (x,y) -> (x ++ ':':y)) hdrs)]
+         , CurlPost True
+         , CurlPostFields [body]
+         , CurlHttpTransferDecoding False
+         ] ++ [CurlHttpHeaders (map ( \ (x,y) -> (x ++ ':':y)) hdrs)]
   rsp <- curlGetResponse u opts
   case respStatus rsp `div` 100 of
     2 -> return (respBody rsp)
