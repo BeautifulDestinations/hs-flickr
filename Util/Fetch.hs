@@ -47,7 +47,7 @@ readContentsURL url = do
     respBody <- responseBody <$> httpLbs req' manager
     return $ unpack $ decodeUtf8 $ toStrict respBody
   where
-    timeout = 6000000 -- 1 minute
+    timeout = 60000000 -- 1 minute
 
 readUserContentsURL :: User -> URLString -> IO String
 readUserContentsURL usr us = do -- readContentsURL u
