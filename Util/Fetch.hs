@@ -20,6 +20,8 @@ module Util.Fetch
        , User(..)
        ) where
 
+import Control.Applicative
+
 import Network.Browser
 import Network.HTTP.Conduit (parseUrl, Request(..), Response(..), newManager, tlsManagerSettings, responseBody, httpLbs)
 import Network.HTTP
