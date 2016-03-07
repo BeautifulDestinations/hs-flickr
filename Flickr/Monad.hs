@@ -28,6 +28,7 @@ import System.FilePath as FilePath ( takeExtension )
 import Data.Typeable
 import Control.Applicative
 import Control.Monad
+import Control.Monad.IO.Class
 
 data FM a = FM (FMEnv -> IO a)
 
@@ -60,8 +61,8 @@ instance Monad FM where
       case k v of
         (FM b) ->  b env
 
-liftIO :: IO a -> FM a
-liftIO x = FM (\ _ -> x)
+instance MonadIO FM where
+  liftIO x = FM (\_ -> x)
 
 flick :: FM a -> IO a
 flick a = flickAPI hsflickrAPIKey a

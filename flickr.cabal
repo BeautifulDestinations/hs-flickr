@@ -74,3 +74,4 @@ library
                 , http-conduit
                 , bytestring
                 , text > 1.2
+                , transformers

@@ -4,6 +4,7 @@ import Flickr.Monad
 import Util.Keys
 import Flickr.Types
 import Flickr.Auth
+import Control.Monad.IO.Class
 
 -- | authenticate the 'web application' way; obtain
 -- a so-called frob, generate a URL for the user to

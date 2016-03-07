@@ -29,7 +29,7 @@ addTags :: PhotoID -> [Tag] -> FM ()
 addTags pid tgs = withWritePerm $ postMethod $
   flickCall_ "flickr.photos.addTags"
              (lsArg "tags" tgs
-	            [ ("photo_id", pid) ])
+                [ ("photo_id", pid) ])
 
 -- | Delete a photo from flickr.
 delete :: PhotoID -> FM ()
@@ -57,10 +57,10 @@ getContactsPhotos mbCount just_friends single_photo include_self extras = liftM 
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getContactsPhotos"
                (mbArg "count" (fmap show mbCount) $
-	         mbArg "just_friends" (fmap showBool just_friends) $
-		  mbArg "single_photo" (fmap showBool single_photo) $
- 		   mbArg "include_self" (fmap showBool include_self) $
-		    lsArg "extras" (map show extras) [])
+             mbArg "just_friends" (fmap showBool just_friends) $
+          mbArg "single_photo" (fmap showBool single_photo) $
+           mbArg "include_self" (fmap showBool include_self) $
+            lsArg "extras" (map show extras) [])
 
 -- | Fetch a list of recent public photos from a users' contacts.
 getContactsPublicPhotos :: Maybe Int -> Maybe Bool -> Maybe Bool -> Maybe Bool -> [PhotoInfo] -> FM [Photo]
@@ -68,10 +68,10 @@ getContactsPublicPhotos mbCount just_friends single_photo include_self extras  =
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getContactsPublicPhotos"
                (mbArg "count" (fmap show mbCount) $
-	         mbArg "just_friends" (fmap showBool just_friends) $
-		  mbArg "single_photo" (fmap showBool single_photo) $
- 		   mbArg "include_self" (fmap showBool include_self) $
-		    lsArg "extras" (map show extras) [])
+             mbArg "just_friends" (fmap showBool just_friends) $
+          mbArg "single_photo" (fmap showBool single_photo) $
+           mbArg "include_self" (fmap showBool include_self) $
+            lsArg "extras" (map show extras) [])
 
 -- | Fetch a list of recent photos from the calling users' contacts.
 getContext :: PhotoID -> FM (Photo,Photo)
@@ -86,7 +86,7 @@ getCounts unix_ts sql_ts =
   flickTranslate toPhotoCountList $
     flickrCall "flickr.photos.getCounts"
                (lsArg "dates"  unix_ts $
-	         lsArg "taken_dates" sql_ts [])
+             lsArg "taken_dates" sql_ts [])
 
 -- | Retrieves a list of EXIF/TIFF/GPS tags for a given photo. The calling user
 -- must have permission to view the photo.
@@ -95,23 +95,23 @@ getExif pid secret =
   flickTranslate toEXIFList $
     flickrCall "flickr.photos.getExif"
                (mbArg "secret"  secret
-	         [ ("photo_id", pid) ])
+             [ ("photo_id", pid) ])
 
 -- | Returns the list of people who have favorited a given photo.
 getFavorites :: PhotoID -> FM [(User,Date)]
 getFavorites pid =
   flickTranslate toResList $
     flickrCall "flickr.photos.getFavorites"
-	         [ ("photo_id", pid) ]
+             [ ("photo_id", pid) ]
  where
   toResList s = parseDoc eltRes s
 
   eltRes e = do
     let es = findChildren (nsName "person") e
-    mapM ( \ p -> do
+    mapM (\p -> do
         fd <- pAttr "favedate" p
-	u  <- eltUser p
-	return (u,fd)) es
+        u  <- eltUser p
+        return (u,fd)) es
 
 -- | Get information about a photo. The calling user must have permission to view the photo.
 getInfo :: PhotoID -> Maybe String -> FM PhotoDetails
@@ -119,25 +119,25 @@ getInfo pid secret =
   flickTranslate toPhotoDetails $
     flickrCall "flickr.photos.getInfo"
                (mbArg "secret"  secret
-	         [ ("photo_id", pid) ])
+             [ ("photo_id", pid) ])
 
 -- | Returns a list of your photos that are not part of any sets.
 getNotInSet :: Maybe DateInterval
             -> Maybe DateInterval
-	    -> Maybe Privacy
-	    -> Maybe MediaType
-	    -> [PhotoInfo]
-	    -> FM [Photo]
+        -> Maybe Privacy
+        -> Maybe MediaType
+        -> [PhotoInfo]
+        -> FM [Photo]
 getNotInSet mbUpload mbTaken priv med extras = liftM snd $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getNotInSet"
                (mbArg "min_upload_date"  mbUpload1 $
-	         mbArg "max_upload_date" mbUpload2 $
-		  mbArg "min_taken_date" mbTaken1  $
- 		   mbArg "max_taken_date" mbTaken2 $
-		    mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
-		     mbArg "media" (fmap show med) $
-		      lsArg "extras" (map show extras) [])
+             mbArg "max_upload_date" mbUpload2 $
+          mbArg "min_taken_date" mbTaken1  $
+           mbArg "max_taken_date" mbTaken2 $
+            mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
+             mbArg "media" (fmap show med) $
+              lsArg "extras" (map show extras) [])
  where
   mbUpload1 = fmap fst mbUpload
   mbUpload2 = mbUpload >>= \ x -> snd x
@@ -152,39 +152,39 @@ getPerms :: PhotoID -> FM Permissions
 getPerms pid = withReadPerm $
   flickTranslate toPermissions $
     flickrCall "flickr.photos.getPerms"
-	       [ ("photo_id", pid) ]
+           [ ("photo_id", pid) ]
 
 -- | Returns a list of the latest public photos uploaded to flickr.
 getRecent :: [PhotoInfo] -> FM [Photo]
 getRecent extras = liftM snd $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getRecent"
-	       (lsArg "extras" (map show extras) [])
+           (lsArg "extras" (map show extras) [])
 
 -- | Returns the available sizes for a photo. The calling user must have permission to view the photo.
 getSizes :: PhotoID -> FM [SizeDetails]
 getSizes pid =
   flickTranslate toSizeList $
     flickrCall "flickr.photos.getSizes"
-	       [ ("photo_id", pid) ]
+           [ ("photo_id", pid) ]
 
 -- | Returns a list of your photos with no tags.
 getUntagged :: Maybe DateInterval
             -> Maybe DateInterval
-	    -> Maybe Privacy
-	    -> Maybe MediaType
-	    -> [PhotoInfo]
-	    -> FM [Photo]
+        -> Maybe Privacy
+        -> Maybe MediaType
+        -> [PhotoInfo]
+        -> FM [Photo]
 getUntagged mbUpload mbTaken priv med extras = liftM snd $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getUntagged"
                (mbArg "min_upload_date"  mbUpload1 $
-	         mbArg "max_upload_date" mbUpload2 $
-		  mbArg "min_taken_date" mbTaken1  $
- 		   mbArg "max_taken_date" mbTaken2 $
-		    mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
-		     mbArg "media" (fmap show med) $
-		      lsArg "extras" (map show extras) [])
+             mbArg "max_upload_date" mbUpload2 $
+          mbArg "min_taken_date" mbTaken1  $
+           mbArg "max_taken_date" mbTaken2 $
+            mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
+             mbArg "media" (fmap show med) $
+              lsArg "extras" (map show extras) [])
  where
   mbUpload1 = fmap fst mbUpload
   mbUpload2 = mbUpload >>= \ x -> snd x
@@ -194,23 +194,23 @@ getUntagged mbUpload mbTaken priv med extras = liftM snd $
 
 -- | Returns a list of your geo-tagged photos.
 getWithGeoData :: Maybe DateInterval
-	       -> Maybe DateInterval
-	       -> Maybe Privacy
-	       -> Maybe SortKey
-	       -> Maybe MediaType
-	       -> [PhotoInfo]
-	       -> FM [Photo]
+           -> Maybe DateInterval
+           -> Maybe Privacy
+           -> Maybe SortKey
+           -> Maybe MediaType
+           -> [PhotoInfo]
+           -> FM [Photo]
 getWithGeoData mbUpload mbTaken priv sortKey med extras = liftM snd $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getWithGeoData"
                (mbArg "min_upload_date"  mbUpload1 $
-	         mbArg "max_upload_date" mbUpload2 $
-		  mbArg "min_taken_date" mbTaken1  $
- 		   mbArg "max_taken_date" mbTaken2 $
-		    mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
-		     mbArg "sort" (fmap show sortKey) $
- 		      mbArg "media" (fmap show med) $
-		       lsArg "extras" (map show extras) [])
+             mbArg "max_upload_date" mbUpload2 $
+          mbArg "min_taken_date" mbTaken1  $
+           mbArg "max_taken_date" mbTaken2 $
+            mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
+             mbArg "sort" (fmap show sortKey) $
+              mbArg "media" (fmap show med) $
+               lsArg "extras" (map show extras) [])
  where
   mbUpload1 = fmap fst mbUpload
   mbUpload2 = mbUpload >>= \ x -> snd x
@@ -220,23 +220,23 @@ getWithGeoData mbUpload mbTaken priv sortKey med extras = liftM snd $
 
 -- | Returns a list of your photos which haven't been geo-tagged.
 getWithoutGeoData :: Maybe DateInterval
-	          -> Maybe DateInterval
-	          -> Maybe Privacy
-	          -> Maybe SortKey
-	          -> Maybe MediaType
-	          -> [PhotoInfo]
-	          -> FM [Photo]
+              -> Maybe DateInterval
+              -> Maybe Privacy
+              -> Maybe SortKey
+              -> Maybe MediaType
+              -> [PhotoInfo]
+              -> FM [Photo]
 getWithoutGeoData mbUpload mbTaken priv sortKey med extras = liftM snd $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.getWithoutGeoData"
                (mbArg "min_upload_date"  mbUpload1 $
-	         mbArg "max_upload_date" mbUpload2 $
-		  mbArg "min_taken_date" mbTaken1  $
- 		   mbArg "max_taken_date" mbTaken2 $
-		    mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
-		     mbArg "sort" (fmap show sortKey) $
- 		      mbArg "media" (fmap show med) $
-		       lsArg "extras" (map show extras) [])
+                mbArg "max_upload_date" mbUpload2 $
+                mbArg "min_taken_date" mbTaken1  $
+                mbArg "max_taken_date" mbTaken2 $
+                mbArg "privacy_filter" (fmap (show.fromEnum) priv) $
+                mbArg "sort" (fmap show sortKey) $
+                mbArg "media" (fmap show med) $
+                lsArg "extras" (map show extras) [])
  where
   mbUpload1 = fmap fst mbUpload
   mbUpload2 = mbUpload >>= \ x -> snd x
@@ -254,13 +254,13 @@ recentlyUpdated minDate extras = withReadPerm $
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.recentlyUpdated"
                (lsArg "extras" (map show extras)
-	         [ ("min_date", minDate) ])
+             [ ("min_date", minDate) ])
 
 -- | Remove a tag from a photo.
 removeTag :: Tag -> FM ()
 removeTag tag = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.removeTag"
-	       [ ("tag_id", tag) ]
+           [ ("tag_id", tag) ]
 
 -- | Return a list of photos matching some criteria. Only photos
 -- visible to the calling user will be returned. To return private
@@ -275,34 +275,34 @@ search uid sc extras =
   flickTranslate toPhotoList $
     flickrCall "flickr.photos.search"
                (mbArg "user_id" uid $
-	         lsArg "tags" (s_tags sc) $
-		 mbArg "tag_mode" (fmap (\ x -> if x then "all" else "any") (s_tag_mode sc)) $
-		   mbArg "text" (s_text sc) $
-		    mbArg "min_upload_date" mbUpload1 $
-		    mbArg "max_upload_date" mbUpload2 $
-		    mbArg "min_taken_date" mbTaken1 $
-		    mbArg "max_taken_date" mbTaken2 $
-		    mbArg "license" (fmap (intercalate ",") (s_license sc)) $
-		    mbArg "sort" (fmap show $ s_sort sc) $
-		    mbArg "privacy_filter" (fmap (show.fromEnum) $ s_privacy sc) $
-		    mbArg "bbox" (fmap show $ s_bbox sc) $
-		    mbArg "accuracy" (fmap show (s_accuracy sc)) $
-		    mbArg "safe_search" (fmap (show.succ.fromEnum) (s_safe_search sc)) $
-		    mbArg "content_type" (fmap (show.succ.fromEnum) (s_content_type sc)) $
-		    lsArg "machine_tags" (s_machine_tags sc) $
-		    mbArg "machine_tag_mode" (fmap (\ x -> if x then "all" else "any") (s_machine_tag_mode sc)) $
-		    mbArg "group_id" (s_group_id sc) $
-		    mbArg "contacts" (fmap (\ x -> if x then "all" else "ff") (s_contacts sc)) $
-		    mbArg "woe_id" (fmap show (s_woe_id sc)) $
-		    mbArg "place_id" (s_place_id sc) $
-		    mbArg "media"  (fmap show (s_media sc)) $
-		    mbArg "has_geo" (fmap showBool (s_has_geo sc)) $
-		    mbArg "lat" (s_lat sc) $
-		    mbArg "lon" (s_lon sc) $
-		    mbArg "radius" (s_radius sc) $
-		    mbArg "radius_units" (s_radius_units sc) $
-		    mbArg "is_commons"   (fmap showBool (s_is_commons sc)) $
-		    lsArg "extras" (map show extras) [])
+             lsArg "tags" (s_tags sc) $
+         mbArg "tag_mode" (fmap (\ x -> if x then "all" else "any") (s_tag_mode sc)) $
+           mbArg "text" (s_text sc) $
+            mbArg "min_upload_date" mbUpload1 $
+            mbArg "max_upload_date" mbUpload2 $
+            mbArg "min_taken_date" mbTaken1 $
+            mbArg "max_taken_date" mbTaken2 $
+            mbArg "license" (fmap (intercalate ",") (s_license sc)) $
+            mbArg "sort" (fmap show $ s_sort sc) $
+            mbArg "privacy_filter" (fmap (show.fromEnum) $ s_privacy sc) $
+            mbArg "bbox" (fmap show $ s_bbox sc) $
+            mbArg "accuracy" (fmap show (s_accuracy sc)) $
+            mbArg "safe_search" (fmap (show.succ.fromEnum) (s_safe_search sc)) $
+            mbArg "content_type" (fmap (show.succ.fromEnum) (s_content_type sc)) $
+            lsArg "machine_tags" (s_machine_tags sc) $
+            mbArg "machine_tag_mode" (fmap (\ x -> if x then "all" else "any") (s_machine_tag_mode sc)) $
+            mbArg "group_id" (s_group_id sc) $
+            mbArg "contacts" (fmap (\ x -> if x then "all" else "ff") (s_contacts sc)) $
+            mbArg "woe_id" (fmap show (s_woe_id sc)) $
+            mbArg "place_id" (s_place_id sc) $
+            mbArg "media"  (fmap show (s_media sc)) $
+            mbArg "has_geo" (fmap showBool (s_has_geo sc)) $
+            mbArg "lat" (s_lat sc) $
+            mbArg "lon" (s_lon sc) $
+            mbArg "radius" (s_radius sc) $
+            mbArg "radius_units" (s_radius_units sc) $
+            mbArg "is_commons"   (fmap showBool (s_is_commons sc)) $
+            lsArg "extras" (map show extras) [])
  where
   mbUpload1 = fmap fst (s_upload sc)
   mbUpload2 = (s_upload sc) >>= \ x -> snd x
@@ -372,54 +372,54 @@ nullSearchConstraints = SearchConstraints
 setContentType :: PhotoID -> ContentType -> FM ()
 setContentType pid c = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setContentType"
-	       [ ("photo_id", pid)
-	       , ("content_type", showContentType c)
-	       ]
+           [ ("photo_id", pid)
+           , ("content_type", showContentType c)
+           ]
 
 -- | Set one or both of the dates for a photo.
 setDates :: PhotoID -> Maybe DateString -> Maybe DateString -> Maybe DateGranularity -> FM ()
 setDates pid datePosted dateTaken dateTakenGranularity = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setDates"
-	       (mbArg "date_posted" datePosted $
-	         mbArg "date_taken" dateTaken $
-		  mbArg "date_taken_granularity" (fmap show dateTakenGranularity) $
-		    [ ("photo_id", pid) ])
+           (mbArg "date_posted" datePosted $
+             mbArg "date_taken" dateTaken $
+          mbArg "date_taken_granularity" (fmap show dateTakenGranularity) $
+            [ ("photo_id", pid) ])
 
 -- | Set the meta information for a photo.
 setMeta :: PhotoID -> Title -> Description -> FM ()
 setMeta pid title desc = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setMeta"
-	       [ ("photo_id", pid)
-	       , ("title", title)
-	       , ("description", desc)
-	       ]
+           [ ("photo_id", pid)
+           , ("title", title)
+           , ("description", desc)
+           ]
 
 -- | Set permissions for a photo.
 setPerms :: PhotoID -> Permissions -> FM ()
 setPerms pid p = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setPerms"
                [ ("photo_id", pid)
-	       , ("is_public", showBool (permIsPublic p))
-	       , ("is_friend", showBool (permIsFriend p))
-	       , ("is_family", showBool (permIsFamily p))
-	       , ("perm_comment", show (permCommentLevel p))
-	       , ("perm_addmeta", show (permAddMetaLevel p))
-	       ]
+           , ("is_public", showBool (permIsPublic p))
+           , ("is_friend", showBool (permIsFriend p))
+           , ("is_family", showBool (permIsFamily p))
+           , ("perm_comment", show (permCommentLevel p))
+           , ("perm_addmeta", show (permAddMetaLevel p))
+           ]
 
 -- | Set the safety level of a photo.
 setSafetyLevel :: PhotoID -> Maybe Safety -> Maybe Bool -> FM ()
 setSafetyLevel pid mbSaf mbHid = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setSafetyLevel"
-	       (mbArg "safety_level" (fmap showSafety mbSaf) $
-	         mbArg "hidden" (fmap showBool mbHid) $
-		    [ ("photo_id", pid) ])
+           (mbArg "safety_level" (fmap showSafety mbSaf) $
+             mbArg "hidden" (fmap showBool mbHid) $
+            [ ("photo_id", pid) ])
 
 -- | Set the tags for a photo.
 setTags :: PhotoID -> [Tag] -> FM ()
 setTags pid ts = withWritePerm $ postMethod $
     flickCall_ "flickr.photos.setTags"
-	       (lsArg "tags" ts $
-		    [ ("photo_id", pid)])
+           (lsArg "tags" ts $
+            [ ("photo_id", pid)])
 
 -- | locate the URL for the photo..local, non-Flickr, helper function.
 -- Returns '<unknown>' if cannot be located.
@@ -428,6 +428,6 @@ getPhotoURL p =
    case fromMaybe "" (photoURL (photoDetailsPhoto p)) of
      "" -> case photoDetailsURLs p of
              [] -> "<unknown>"
-	     (u:_) -> urlDetailsURL u
+             (u:_) -> urlDetailsURL u
      us -> us
 
