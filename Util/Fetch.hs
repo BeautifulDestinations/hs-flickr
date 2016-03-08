@@ -21,33 +21,45 @@ module Util.Fetch
        ) where
 
 import Control.Applicative
+import Control.Exception   (catch, throwIO, toException)
 
 import Network.Browser
-import Network.HTTP.Conduit (parseUrl, Request(..), Response(..), newManager, tlsManagerSettings, responseBody, httpLbs)
-import Network.HTTP
+import Network.HTTP.Types.Status (Status(..))
+import Network.HTTP.Conduit ( parseUrl, Request(..), Response(..), newManager
+                            , tlsManagerSettings, responseBody, httpLbs, Manager
+                            , HttpException(..))
+import Network.HTTP hiding (Request, Response)
 import Network.URI
 
-import Data.ByteString.Lazy (toStrict)
+import Data.ByteString.Lazy (pack, toStrict, ByteString)
 
 import Data.Text (unpack)
 import Data.Text.Encoding (decodeUtf8)
 
 type URLString = String
 
-data User
- = User { userName :: String
-        , userPass :: String
-    }
+data User = User
+  { userName :: String
+  , userPass :: String
+  }
+
+handleStatusCodeEx :: Int -> Request -> Manager -> HttpException -> IO (Response ByteString)
+handleStatusCodeEx n req manager s@(StatusCodeException (Status 504 msg) _ _)
+  | n >= 10 = throwIO $ toException s
+  | otherwise = do
+      putStrLn $ unpack $ decodeUtf8 msg
+      httpLbs req manager `catch` handleStatusCodeEx (n+1) req manager
+handleStatusCodeEx n _ _ e = throwIO $ toException e
 
 readContentsURL :: URLString -> IO String
 readContentsURL url = do
     req <- parseUrl url
     manager <- newManager tlsManagerSettings
     let req' = req { responseTimeout = Just timeout }
-    respBody <- responseBody <$> httpLbs req' manager
+    respBody <- responseBody <$> httpLbs req' manager `catch` handleStatusCodeEx 0 req' manager
     return $ unpack $ decodeUtf8 $ toStrict respBody
   where
-    timeout = 60000000 -- 1 minute
+    timeout = 120000000 -- 2 mins
 
 readUserContentsURL :: User -> URLString -> IO String
 readUserContentsURL usr us = do -- readContentsURL u

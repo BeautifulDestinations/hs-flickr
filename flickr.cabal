@@ -75,3 +75,4 @@ library
                 , bytestring
                 , text > 1.2
                 , transformers
+                , http-types

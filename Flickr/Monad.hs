@@ -252,12 +252,10 @@ flickCall m args = FM $ \ env -> do
       | otherwise          = restGet
 
 --  print ("XX",args,fm_is_signed env, fm_auth_token env, api_sig_inp)
-  restMeth (fromMaybe api_base (fm_api_base env))
-           (includeProps $
-	    pageContext  $
-            (withMethod
-              (("api_key", apiKey $ fm_api_key env) :
-	          isSigned (withAToken $ withPerms args))))
+  restMeth (fromMaybe api_base $ fm_api_base env) $
+    includeProps $ pageContext $ withMethod $
+      ("api_key", apiKey $ fm_api_key env) : isSigned (withAToken $ withPerms args)
+
 
 mkLoginURL :: String -> String -> FM String
 mkLoginURL fr p = FM $ \ env -> do
@@ -279,8 +277,7 @@ genLoginURL api_key secret frob perm =
                         "perms" ++ perm
 
 restGet :: {-URL-}String -> [(String,String)] -> IO String
-restGet a kv = do
-  readContentsURL (a ++ wArgs kv)
+restGet a kv = readContentsURL (a ++ wArgs kv)
  where
    wArgs [] = ""
    wArgs xs = '?':intercalate "&" (map (\ (k,v) -> k ++ '=':v) xs)
